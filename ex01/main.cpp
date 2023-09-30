@@ -7,10 +7,22 @@ void	PhoneBook::print_contacts(int n)
 
 	while (x < n)
 	{
-		std::cout << x << std::endl;
-		std::cout << contacts[x].getFirstname() << std::endl;
-		std::cout << contacts[x].getLastname() << std::endl;
-		std::cout << contacts[x].getNickname() << std::endl;
+		std::cout << std::setw(10) << x << "|";
+		if (contacts[x].getFirstname().size() > 10)
+			std::cout << std::setw(10) << contacts[x].getFirstname().substr(0, 9) + ".";
+		else 
+			std::cout << std::setw(10) << contacts[x].getFirstname();
+		std::cout << "|";
+		if (contacts[x].getLastname().size() > 10)
+			std::cout << std::setw(10) << contacts[x].getLastname().substr(0, 9) + ".";
+		else
+			std::cout << std::setw(10) << contacts[x].getLastname();
+		std::cout << "|";
+		if (contacts[x].getNickname().size() > 10)
+			std::cout << std::setw(10) << contacts[x].getNickname().substr(0, 9) + ".";
+		else
+			std::cout << std::setw(10) << contacts[x].getNickname();
+		std::cout << "|" << std::endl;
 		x++;
 	}
 }
@@ -50,11 +62,11 @@ int	main()
 		if (command == "ADD")
 		{
 			std::cout << n << std::endl;
-			if (n > 1)
+			if (n > 7)
 				n = 0;
 			phonebook_obj.save_phonebook(n);
 			n++;
-			if (x < 2)
+			if (x < 8)
 				x++;
 		}
 		if (command == "SEARCH")
