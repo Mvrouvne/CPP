@@ -1,6 +1,22 @@
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
 
+std::string	check_ifempty(std::string str)
+{
+	std::string	line;
+	while (1)
+	{
+		std::cout << "Enter " << str << ": " << std::endl;
+		std::getline(std::cin, line);
+		if (line.empty())
+			std::cout << "Line is empty!" << std::endl;
+		else
+			break ;
+	}
+	
+	return (line);
+}
+
 int	check_number(std::string index)
 {
 	int	x = 0;
@@ -43,18 +59,28 @@ void	PhoneBook::print_contacts(int n)
 	}
 }
 
+std::string line()
+{
+	std::string name;
+	return name;
+}
+
 void	Contacts::set_contacts(void)
 {
-	std::cout << "Enter first name: " << std::endl;
-	std::cin >> first_name;
-	std::cout << "Enter last name: " << std::endl;
-	std::cin >> last_name;
-	std::cout << "Enter nickname: " << std::endl;
-	std::cin >> nickname;
-	std::cout << "Enter phone number: " << std::endl;
-	std::cin >> phone_number;
-	std::cout << "Enter darkest secret: " << std::endl;
-	std::cin >> darkest_secret;
+	first_name = check_ifempty("first name");
+	first_name = check_ifempty("last name");
+	first_name = check_ifempty("nickname");
+	while (1)
+	{
+		phone_number = check_ifempty("phone number");
+		if (!check_number(phone_number))
+		{
+			std::cout << "Numbers Only!" << std::endl;
+			continue;
+		}
+		break ;
+	}
+	first_name = check_ifempty("darkest secret");
 }
 
 void	PhoneBook::save_phonebook(int n)
@@ -75,7 +101,13 @@ int	main()
 	while (1337)
 	{
 		std::cout << "Enter a command: " << std::endl;
-		std::cin >> command;
+		// std::cin >> command;
+		std::getline(std::cin, command);
+		if (command.empty())
+		{
+			std::cout << "Line is empty!" << std::endl;
+			continue;
+		}
 		if (command == "ADD")
 		{
 			std::cout << n << std::endl;
@@ -93,16 +125,15 @@ int	main()
 			{
 				std::cout << "Enter an index: " << std::endl;
 				std::cin >> index;
-				// std::cout << "[" << index << "]" << std::endl;
-				// if (index < 0 || index > 7)
-				// 	std::cout << "Enter an NUMBER from 0 -> 7" << std::endl;
-				// else
-				// 	break;
-				// else if (index )
 				if (check_number(index))
 				{
-					if (atoi(index) < 0 || atoi(index))
+					if (atoi(index.c_str()) < 0 || atoi(index.c_str()) > 7)
+						std::cout << "Enter an NUMBER from 0 -> 7!" << std::endl;
+					else
+						break;
 				}
+				else
+					std::cout << "Digits only!" << std::endl;
 			}
 		}
 		if (command == "EXIT")
