@@ -12,6 +12,8 @@ class   PhoneBook
 	public:
 		void    save_phonebook(int n);
 		void	print_contacts(int n);
+		void	print_index(int x);
 };
+
 
 #endif

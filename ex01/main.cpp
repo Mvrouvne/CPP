@@ -1,15 +1,27 @@
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
 
+void	PhoneBook::print_index(int x)
+{
+	std::cout << "First name: " << contacts[x].getFirstname() << std::endl;
+	std::cout << "Last name: "<< contacts[x].getLastname() << std::endl;
+	std::cout << "Nickname:" << contacts[x].getNickname() << std::endl;
+	std::cout << "Darkest secret:" << contacts[x].getDarkestsecret() << std::endl;
+	std::cout << "Phone number:" << contacts[x].getPhonenumber() << std::endl;
+}
+
 std::string	check_ifempty(std::string str)
 {
 	std::string	line;
+	std::cout << "Enter " << str << ": ";
 	while (1)
 	{
-		std::cout << "Enter " << str << ": " << std::endl;
 		std::getline(std::cin, line);
 		if (line.empty())
-			std::cout << "Line is empty!" << std::endl;
+		{
+			std::cout << "A Contact can NOT be empty!" << std::endl;
+			std::cout << "Try Again: ";
+		}
 		else
 			break ;
 	}
@@ -35,7 +47,7 @@ void	PhoneBook::print_contacts(int n)
 	int	x = 0;
 
 	std::cout << "     index|First name| Last name|  Nickname|" << std::endl;
-	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+	std::cout << "--------------------------------------------" << std::endl;
 	while (x < n)
 	{
 		std::cout << std::setw(10) << x << "|";
@@ -54,22 +66,16 @@ void	PhoneBook::print_contacts(int n)
 		else
 			std::cout << std::setw(10) << contacts[x].getNickname();
 		std::cout << "|" << std::endl;
-		std::cout << "--------------------------------------------" << std::endl;
+		std::cout << "__________|__________|__________|__________|" << std::endl;
 		x++;
 	}
-}
-
-std::string line()
-{
-	std::string name;
-	return name;
 }
 
 void	Contacts::set_contacts(void)
 {
 	first_name = check_ifempty("first name");
-	first_name = check_ifempty("last name");
-	first_name = check_ifempty("nickname");
+	last_name = check_ifempty("last name");
+	nickname = check_ifempty("nickname");
 	while (1)
 	{
 		phone_number = check_ifempty("phone number");
@@ -80,7 +86,7 @@ void	Contacts::set_contacts(void)
 		}
 		break ;
 	}
-	first_name = check_ifempty("darkest secret");
+	darkest_secret = check_ifempty("darkest secret");
 }
 
 void	PhoneBook::save_phonebook(int n)
@@ -100,17 +106,10 @@ int	main()
 	x = 0;
 	while (1337)
 	{
-		std::cout << "Enter a command: " << std::endl;
-		// std::cin >> command;
+		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, command);
-		if (command.empty())
-		{
-			std::cout << "Line is empty!" << std::endl;
-			continue;
-		}
 		if (command == "ADD")
 		{
-			std::cout << n << std::endl;
 			if (n > 7)
 				n = 0;
 			phonebook_obj.save_phonebook(n);
@@ -123,14 +122,17 @@ int	main()
 			phonebook_obj.print_contacts(x);
 			while (42)
 			{
-				std::cout << "Enter an index: " << std::endl;
-				std::cin >> index;
+				std::cout << "Enter an index: ";
+				std::getline(std::cin, index);
 				if (check_number(index))
 				{
 					if (atoi(index.c_str()) < 0 || atoi(index.c_str()) > 7)
 						std::cout << "Enter an NUMBER from 0 -> 7!" << std::endl;
 					else
+					{
+						phonebook_obj.print_index(atoi(index.c_str()));
 						break;
+					}
 				}
 				else
 					std::cout << "Digits only!" << std::endl;
