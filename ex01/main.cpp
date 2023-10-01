@@ -1,10 +1,25 @@
 #include "PhoneBook.hpp"
 #include "Contacts.hpp"
 
+int	check_number(std::string index)
+{
+	int	x = 0;
+
+	while (index[x])
+	{
+		if (!isdigit(index[x]))
+			return (0);
+		x++;
+	}
+	return (1);
+}
+
 void	PhoneBook::print_contacts(int n)
 {
 	int	x = 0;
 
+	std::cout << "     index|First name| Last name|  Nickname|" << std::endl;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 	while (x < n)
 	{
 		std::cout << std::setw(10) << x << "|";
@@ -23,6 +38,7 @@ void	PhoneBook::print_contacts(int n)
 		else
 			std::cout << std::setw(10) << contacts[x].getNickname();
 		std::cout << "|" << std::endl;
+		std::cout << "--------------------------------------------" << std::endl;
 		x++;
 	}
 }
@@ -52,6 +68,7 @@ int	main()
 	std::string command;
 	int			n;
 	int			x;
+	std::string	index;
 
 	n = 0;
 	x = 0;
@@ -72,6 +89,21 @@ int	main()
 		if (command == "SEARCH")
 		{
 			phonebook_obj.print_contacts(x);
+			while (42)
+			{
+				std::cout << "Enter an index: " << std::endl;
+				std::cin >> index;
+				// std::cout << "[" << index << "]" << std::endl;
+				// if (index < 0 || index > 7)
+				// 	std::cout << "Enter an NUMBER from 0 -> 7" << std::endl;
+				// else
+				// 	break;
+				// else if (index )
+				if (check_number(index))
+				{
+					if (atoi(index) < 0 || atoi(index))
+				}
+			}
 		}
 		if (command == "EXIT")
 			break ;
