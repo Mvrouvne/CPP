@@ -9,8 +9,8 @@ Zombie*	zombieHorde(int N, std::string name)
 	obj = new Zombie[N];
 	while(x < N)
 	{
-		obj[x] = Zombie(name);
-		obj[x].announce();
+		obj[x].get_name(name);
+		// obj[x].announce();
 		x++;
 	}
 	return (obj);
