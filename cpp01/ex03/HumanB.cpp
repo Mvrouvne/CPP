@@ -1,6 +1,6 @@
 #include "HumanB.hpp"
 
-void	HumanB::setWeapon(Weapon weapon1)
+void	HumanB::setWeapon(Weapon& weapon1)
 {
 	this->weapon = &weapon1;
 }
