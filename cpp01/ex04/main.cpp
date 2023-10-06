@@ -2,5 +2,5 @@
 
 int main()
 {
-    copyfile("file.txt", "Marouane", "top g");
+    copyfile("file.txt", "Marouane", "Walid");
 }

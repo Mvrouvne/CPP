@@ -1,8 +1,11 @@
 #include "copyfile.hpp"
 
-std::string	my_replace(std::string to_replace, std::string s2)
+std::string	my_replace(std::string copy, int pos, std::string s1)
 {
-	
+	copy = copy.substr(pos + s1.length(), copy.length());
+	std::cout << pos + s1.length() << " | " << copy.length() << std::endl;
+	std::cout << "[" << copy << "]" << std::endl;
+	return copy;
 }
 
 void	copyfile(std::string filename, std::string s1, std::string s2)
@@ -25,18 +28,23 @@ void	copyfile(std::string filename, std::string s1, std::string s2)
 	{
 		// find & replace
 		char_num = copy.find(s1);
-		while (copy[char_num] && s1[x])
+		std::cout << "cha_num: " << char_num << std::endl;
+		while (copy[x])
 		{
-			if ((copy[char_num] == s1[x]) && (s1[x + 1] == '\0'))
+			if (char_num != -1 && x == char_num)
 			{
-				my_replace();
+				outfile << s2;
+				copy = my_replace(copy, char_num, s1);
+				x = 0;
+				char_num = copy.find(s1);
 			}
-			// else if ()
-			char_num = copy.find(s1, char_num + 1);
+			else
+			{
+				outfile << copy[x];
+				x++;
+			}
 		}
 		std::cout << char_num << std::endl;
 		outfile << copy << std::endl;
 	}
-	// std::cout << new_file << "--" << std::endl;
-	// filename.replace(0, filename.length(), new_file);
 }
