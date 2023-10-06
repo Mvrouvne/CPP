@@ -13,16 +13,15 @@ int main(int ac, char **av)
     }
     while (av[x])
     {
+        
         y = 0;
         while (av[x][y])
         {
             std::cout << (char)toupper(av[x][y]);
-            // if (av[x][y] >= 'a' && av[x][y] <= 'z')
-            //     av[x][y] = av[x][y] - 32;
-            // std::cout << av[x][y];
             y++;
         }
         std::cout << av[x][y];
         x++;
     }
 }
+// handle EOF

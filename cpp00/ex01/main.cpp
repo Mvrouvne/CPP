@@ -17,9 +17,11 @@ std::string	check_ifempty(std::string str)
 	while (1)
 	{
 		std::getline(std::cin, line);
+		if (std::cin.eof())
+           exit (0);
 		if (line.empty())
 		{
-			std::cout << "A Contact can NOT be empty!" << std::endl;
+			std::cout << "A Contact detail can NOT be empty!" << std::endl;
 			std::cout << "Try Again: ";
 		}
 		else
@@ -106,6 +108,8 @@ int	main()
 	x = 0;
 	while (1337)
 	{
+		if (std::cin.eof())
+            exit (0);
 		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, command);
 		if (command == "ADD")
@@ -130,6 +134,11 @@ int	main()
 						std::cout << "Enter an NUMBER from 0 -> 7!" << std::endl;
 					else
 					{
+						if (atoi(index.c_str()) >= n)
+						{
+							std::cout << "No contact found in this index!" << std::endl;
+							break;
+						}
 						phonebook_obj.print_index(atoi(index.c_str()));
 						break;
 					}
