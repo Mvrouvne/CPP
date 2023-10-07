@@ -5,7 +5,6 @@ int main(int ac, char **av)
     int x;
     int y;
 
-
     x = 1;
     if (ac == 1)
     {
