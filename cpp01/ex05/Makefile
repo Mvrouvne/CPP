@@ -1,9 +1,9 @@
-NAME = exe
+NAME = Harl
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp\
-		copyfile.cpp\
+		Harl.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 

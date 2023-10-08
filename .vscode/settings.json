@@ -63,6 +63,8 @@
         "concepts": "cpp",
         "algorithm": "cpp",
         "iomanip": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "deque": "cpp",
+        "stack": "cpp"
     }
 }
