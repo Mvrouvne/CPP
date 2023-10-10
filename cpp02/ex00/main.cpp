@@ -25,8 +25,11 @@ int main()
 {
     Test a1(10, 20);
     Test a2(20, 40);
-    Test a3 = a1 + a2;
+    a1(a2);
+    std::cout << a1.geta() << std::endl;
+    std::cout << "Walid\n";
+    // Test a3 = a1 + a2;
 
-    std::cout << a3.geta() << std::endl;
-    std::cout << a3.getb() << std::endl;
+    // std::cout << a3.geta() << std::endl;
+    // std::cout << a3.getb() << std::endl;
 }
