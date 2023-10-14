@@ -58,7 +58,8 @@ float   Fixed::toFloat() const
 {
     float   f;
 
-    f = fxp << fbits;
+    f = fxp >> fbits;
+	// std::cout << "float: " << f << std::endl
     return f;
 }
 

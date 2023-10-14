@@ -15,4 +15,16 @@ int	main()
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
 	return 0; 
+	// float f = 1234.4321f;
+
+	// int fxp = f * (1 << 8);
+	// float x = fxp >> 8;
+	// std::cout << x << std::endl;
+
+	// int b = 10;
+	// int x = b << 8;
+
+
+	// float f = x >> 8;
+	// std::cout << f << std::endl;
 }
