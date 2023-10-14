@@ -6,6 +6,11 @@ Zombie*	zombieHorde(int N, std::string name)
 	int		x;
 	
 	x = 0;
+	if (N <= 0)
+	{
+		std::cout << "N can't be negative or 0" << std::endl;
+		exit (1);
+	}
 	obj = new Zombie[N];
 	while(x < N)
 	{

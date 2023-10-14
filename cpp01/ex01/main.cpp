@@ -4,8 +4,8 @@ int	main()
 {
 	Zombie* obj;
 	
-	obj = zombieHorde(5, "Mark");
-	for(int x = 0; x < 5; x++)
+	obj = zombieHorde(0, "Mark");
+	for(int x = 0; x < 1; x++)
 		obj[x].announce();
 	delete[] obj;
 }

@@ -77,3 +77,8 @@ std::ostream&	operator << (std::ostream& output, const Fixed& obj)
 
 	return output;
 }
+
+bool	operator < (const Fixed& obj)
+{
+	return (*this < obj);
+}
