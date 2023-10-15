@@ -78,7 +78,56 @@ std::ostream&	operator << (std::ostream& output, const Fixed& obj)
 	return output;
 }
 
-bool	operator < (const Fixed& obj)
+bool	Fixed::operator < (const Fixed& obj)
 {
-	return (*this < obj);
+	return (this->fxp < obj.fxp);
+}
+
+bool	Fixed::operator > (const Fixed& obj)
+{
+	return (this->fxp > obj.fxp);
+}
+
+bool	Fixed::operator <= (const Fixed& obj)
+{
+	return (this->fxp <= obj.fxp);
+}
+
+bool	Fixed::operator >= (const Fixed& obj)
+{
+	return (this->fxp >= obj.fxp);
+}
+
+bool	Fixed::operator == (const Fixed& obj)
+{
+	return (this->fxp == obj.fxp);
+}
+
+bool	Fixed::operator != (const Fixed& obj)
+{
+	return (this->fxp != obj.fxp);
+}
+
+Fixed& Fixed::operator+(const Fixed& old_obj)
+{
+	this->fxp + old_obj.getRawBits();
+	return *this;
+}
+
+Fixed& Fixed::operator-(const Fixed& old_obj)
+{
+	this->fxp - old_obj.getRawBits();
+	return *this;
+}
+
+Fixed& Fixed::operator*(const Fixed& old_obj)
+{
+	this->fxp * old_obj.getRawBits();
+	return *this;
+}
+
+Fixed& Fixed::operator/(const Fixed& old_obj)
+{
+	this->fxp / old_obj.getRawBits();
+	return *this;
 }

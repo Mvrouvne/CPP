@@ -21,6 +21,15 @@ class	Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 		bool	operator < (const Fixed& obj);
+		bool	operator > (const Fixed& obj);	
+		bool	operator <= (const Fixed& obj);	
+		bool	operator >= (const Fixed& obj);	
+		bool	operator == (const Fixed& obj);
+		bool	operator != (const Fixed& obj);
+		Fixed& operator+(const Fixed& old_obj);
+		Fixed& operator-(const Fixed& old_obj);
+		Fixed& operator*(const Fixed& old_obj);
+		Fixed& operator/(const Fixed& old_obj);
 };
 
 std::ostream&	operator << (std::ostream& output, const Fixed& obj);
