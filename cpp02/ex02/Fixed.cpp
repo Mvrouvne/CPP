@@ -110,24 +110,26 @@ bool	Fixed::operator != (const Fixed& obj)
 
 Fixed& Fixed::operator+(const Fixed& old_obj)
 {
-	this->fxp + old_obj.getRawBits();
+	// std::cout << "in: " << this->getRawBits() << std::endl;
+	this->fxp = this->fxp + old_obj.getRawBits();
+	// std::cout << "out: " << this->getRawBits() << std::endl;
 	return *this;
 }
 
 Fixed& Fixed::operator-(const Fixed& old_obj)
 {
-	this->fxp - old_obj.getRawBits();
+	this->fxp = this->fxp - old_obj.getRawBits();
 	return *this;
 }
 
 Fixed& Fixed::operator*(const Fixed& old_obj)
 {
-	this->fxp * old_obj.getRawBits();
+	this->fxp = this->fxp * old_obj.getRawBits();
 	return *this;
 }
 
 Fixed& Fixed::operator/(const Fixed& old_obj)
 {
-	this->fxp / old_obj.getRawBits();
+	this->fxp = this->fxp / old_obj.getRawBits();
 	return *this;
 }
