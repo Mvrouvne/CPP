@@ -59,7 +59,7 @@ float   Fixed::toFloat() const
     float   f;
 
     f = fxp / (float)(1 << fbits);
-	// std::cout << "float: " << f << std::endl
+	// std::cout << "float: " << f << std::endl;
     return f;
 }
 
@@ -110,9 +110,7 @@ bool	Fixed::operator != (const Fixed& obj)
 
 Fixed& Fixed::operator+(const Fixed& old_obj)
 {
-	// std::cout << "in: " << this->getRawBits() << std::endl;
 	this->fxp = this->fxp + old_obj.getRawBits();
-	// std::cout << "out: " << this->getRawBits() << std::endl;
 	return *this;
 }
 
@@ -124,6 +122,7 @@ Fixed& Fixed::operator-(const Fixed& old_obj)
 
 Fixed& Fixed::operator*(const Fixed& old_obj)
 {
+	// std::cout << (old_obj.fxp >> fbits) << std::endl;
 	this->fxp = this->fxp * old_obj.getRawBits();
 	return *this;
 }
