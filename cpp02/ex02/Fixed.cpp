@@ -122,13 +122,14 @@ Fixed& Fixed::operator-(const Fixed& old_obj)
 
 Fixed& Fixed::operator*(const Fixed& old_obj)
 {
-	// std::cout << (old_obj.fxp >> fbits) << std::endl;
 	this->fxp = this->fxp * old_obj.getRawBits();
+	this->fxp = toFloat();
 	return *this;
 }
 
 Fixed& Fixed::operator/(const Fixed& old_obj)
 {
 	this->fxp = this->fxp / old_obj.getRawBits();
-	return *this;
+	// this->fxp = this->fxp << fbits;
+	// return (this->toFloat() / old_obj.toFloat());
 }
