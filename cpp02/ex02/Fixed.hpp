@@ -20,8 +20,8 @@ class	Fixed
 		Fixed(const float f);
 		float	toFloat(void) const;
 		int		toInt(void) const;
-		bool	operator < (const Fixed& obj);
-		bool	operator > (const Fixed& obj);	
+		bool	operator < (const Fixed& obj) const;
+		bool	operator > (const Fixed& obj) const;	
 		bool	operator <= (const Fixed& obj);	
 		bool	operator >= (const Fixed& obj);	
 		bool	operator == (const Fixed& obj);

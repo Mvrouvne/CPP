@@ -5,12 +5,12 @@ const int	Fixed::fbits = 8;
 Fixed::Fixed()
 {
 	fxp = 0;
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& old_obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	if (this != &old_obj)
 		// fxp = old_obj.fxp;
 		*this = old_obj;
@@ -19,7 +19,7 @@ Fixed::Fixed(const Fixed& old_obj)
 
 Fixed& Fixed::operator=(const Fixed& old_obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &old_obj)
 		// fxp = old_obj.fxp;
 		fxp = old_obj.getRawBits();
@@ -39,18 +39,18 @@ int	Fixed::getRawBits() const
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const int x)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
     fxp = x << fbits;
 }
 
 Fixed::Fixed(const float f)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
     fxp = f * (1 << fbits);
 }
 
@@ -78,12 +78,12 @@ std::ostream&	operator << (std::ostream& output, const Fixed& obj)
 	return output;
 }
 
-bool	Fixed::operator < (const Fixed& obj)
+bool	Fixed::operator < (const Fixed& obj) const
 {
 	return (this->fxp < obj.fxp);
 }
 
-bool	Fixed::operator > (const Fixed& obj)
+bool	Fixed::operator > (const Fixed& obj) const
 {
 	return (this->fxp > obj.fxp);
 }
