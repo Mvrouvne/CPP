@@ -127,9 +127,63 @@ Fixed& Fixed::operator*(const Fixed& old_obj)
 	return *this;
 }
 
-Fixed& Fixed::operator/(const Fixed& old_obj)
+// Fixed& Fixed::operator/(const Fixed& old_obj)
+// {
+// 	this->fxp = this->toFloat() / old_obj.toFloat();
+// 	// this->fxp = this->fxp << fbits;
+// 	return *this;
+// }
+
+Fixed	Fixed::operator++(int) // Post increment i++
 {
-	this->fxp = this->fxp / old_obj.getRawBits();
-	// this->fxp = this->fxp << fbits;
-	// return (this->toFloat() / old_obj.toFloat());
+	Fixed i(*this);
+	this->fxp++;
+	return i;
+}
+
+Fixed&	Fixed::operator++() // Pre increment ++i
+{
+	fxp++;
+	return *this;
+}
+
+Fixed	Fixed::operator--(int) // Post decrement i--
+{
+	Fixed i(*this);
+	this->fxp--;
+	return i;
+}
+
+Fixed&	Fixed::operator--() // Pre decrement --i
+{
+	fxp--;
+	return *this;
+}
+
+Fixed&	Fixed::min(Fixed& r1, Fixed& r2)
+{
+	if (r1 < r2)
+		return r1;
+	return r2;
+}
+
+const Fixed&	Fixed::min(const Fixed& r1, const Fixed& r2)
+{
+	if (r1 < r2)
+		return r1;
+	return r2;
+}
+
+Fixed&	Fixed::max(Fixed& r1, Fixed& r2)
+{
+	if (r1 > r2)
+		return r1;
+	return r2;
+}
+
+const Fixed& Fixed::max(const Fixed& r1, const Fixed& r2)
+{
+	if (r1 > r2)
+		return r1;
+	return r2;
 }
