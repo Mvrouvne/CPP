@@ -29,6 +29,7 @@ void	copyfile(std::string filename, std::string s1, std::string s2)
 	while(std::getline(fileop, copy))
 	{
 		char_num = copy.find(s1);
+		x = 0;
 		while (copy[x])
 		{
 			if (char_num != -1 && x == char_num)
@@ -44,6 +45,7 @@ void	copyfile(std::string filename, std::string s1, std::string s2)
 				x++;
 			}
 		}
-		outfile << copy << std::endl;
+		if (!fileop.eof())
+			outfile << "\n";
 	}
 }
