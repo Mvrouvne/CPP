@@ -7,10 +7,12 @@
 // 	// Fixed c = a * b;
 
 // 	// std::cout << c << std::endl;
-// 	Fixed a(100);
-// 	std::cout << ((a).getRawBits()) << std::endl;
-// 	std::cout << ((a).getRawBits()) << std::endl;
-// 	std::cout << ((a).getRawBits()) << std::endl;
+// 	// Fixed a(100);
+// 	// std::cout << ((a).getRawBits()) << std::endl;
+// 	// std::cout << ((a).getRawBits()) << std::endl;
+// 	// std::cout << ((a).getRawBits()) << std::endl;
+// 	Fixed const a(Fixed (5.05f) * Fixed(2));
+// 	std::cout << a << std::endl;
 // }
 
 int	main( void )

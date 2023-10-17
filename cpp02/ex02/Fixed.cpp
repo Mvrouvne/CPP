@@ -59,7 +59,6 @@ float   Fixed::toFloat() const
     float   f;
 
     f = fxp / (float)(1 << fbits);
-	// std::cout << "float: " << f << std::endl;
     return f;
 }
 
