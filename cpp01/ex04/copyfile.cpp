@@ -13,7 +13,6 @@ void	copyfile(std::string filename, std::string s1, std::string s2)
 	std::string		copy;
 	int				char_num;
 	int				x = 0;
-	int				y = 0;
 
 	fileop.open(filename);
 	if (!fileop.is_open())
