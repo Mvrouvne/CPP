@@ -109,13 +109,13 @@ bool	Fixed::operator != (const Fixed& obj)
 
 Fixed& Fixed::operator+(const Fixed& old_obj)
 {
-	this->fxp = this->fxp + old_obj.getRawBits();
+	this->fxp = this->fxp + old_obj.fxp;
 	return *this;
 }
 
 Fixed& Fixed::operator-(const Fixed& old_obj)
 {
-	this->fxp = this->fxp - old_obj.getRawBits();
+	this->fxp = this->fxp - old_obj.fxp;
 	return *this;
 }
 
