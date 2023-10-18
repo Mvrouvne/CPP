@@ -119,11 +119,12 @@ Fixed& Fixed::operator-(const Fixed& old_obj)
 	return *this;
 }
 
-Fixed& Fixed::operator*(const Fixed& old_obj)
+Fixed Fixed::operator*(const Fixed& old_obj)
 {
-	this->fxp = this->fxp * old_obj.getRawBits();
-	this->fxp = toFloat();
-	return *this;
+	Fixed	obj;
+	obj.fxp = this->fxp * old_obj.fxp;
+	obj.fxp =  obj.toFloat();
+	return obj;
 }
 
 // Fixed& Fixed::operator/(const Fixed& old_obj)

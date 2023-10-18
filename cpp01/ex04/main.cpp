@@ -7,4 +7,3 @@ int main(int ac, char **av)
     else
         std::cout << "Only 3 arguments allowed!" << std::endl;
 }
- 
