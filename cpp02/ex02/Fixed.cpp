@@ -121,18 +121,19 @@ Fixed& Fixed::operator-(const Fixed& old_obj)
 
 Fixed Fixed::operator*(const Fixed& old_obj)
 {
-	Fixed	obj;
-	obj.fxp = this->fxp * old_obj.fxp;
-	obj.fxp =  obj.toFloat();
-	return obj;
+	// Fixed	obj;
+	// obj.fxp = this->fxp * old_obj.fxp;
+	// obj.fxp = obj.toFloat();
+	// return obj;
+	this->fxp = (this->fxp * old_obj.fxp) >> fbits;
+	return *this;
 }
 
-// Fixed& Fixed::operator/(const Fixed& old_obj)
-// {
-// 	this->fxp = this->toFloat() / old_obj.toFloat();
-// 	// this->fxp = this->fxp << fbits;
-// 	return *this;
-// }
+Fixed Fixed::operator/(const Fixed& old_obj)
+{
+	this->fxp = (this->fxp / old_obj.fxp) << fbits;
+	return *this;
+}
 
 Fixed	Fixed::operator++(int) // Post increment i++
 {

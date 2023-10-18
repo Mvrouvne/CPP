@@ -30,7 +30,7 @@ class	Fixed
 		Fixed&	operator+(const Fixed& old_obj);
 		Fixed&	operator-(const Fixed& old_obj);
 		Fixed	operator*(const Fixed& old_obj);
-		// Fixed&	operator/(const Fixed& old_obj);
+		Fixed	operator/(const Fixed& old_obj);
 		Fixed	operator++(int);
 		Fixed&	operator++();
 		Fixed	operator--(int);
