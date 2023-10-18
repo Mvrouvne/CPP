@@ -51,7 +51,7 @@ Fixed::Fixed(const int x)
 Fixed::Fixed(const float f)
 {
 	// std::cout << "Float constructor called" << std::endl;
-    fxp = f * (1 << fbits);
+    fxp = roundf(f * (1 << fbits));
 }
 
 float   Fixed::toFloat() const
@@ -66,7 +66,7 @@ int Fixed::toInt() const
 {
     int i;
 
-    i = fxp >> fbits;
+    i = fxp / (1 << fbits);
     return i;
 }
 
@@ -121,10 +121,10 @@ Fixed& Fixed::operator-(const Fixed& old_obj)
 
 Fixed Fixed::operator*(const Fixed& old_obj)
 {
-	Fixed	result;
-	result.fxp = this->fxp * old_obj.fxp;
-	result.fxp =result.toFloat();
-	return result;
+	Fixed	obj;
+	obj.fxp = this->fxp * old_obj.fxp;
+	obj.fxp =  obj.toFloat();
+	return obj;
 }
 
 // Fixed& Fixed::operator/(const Fixed& old_obj)
