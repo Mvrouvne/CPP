@@ -12,7 +12,6 @@ Fixed::Fixed(const Fixed& old_obj)
 {
 	// std::cout << "Copy constructor called" << std::endl;
 	if (this != &old_obj)
-		// fxp = old_obj.fxp;
 		*this = old_obj;
 		
 }
@@ -21,7 +20,6 @@ Fixed& Fixed::operator=(const Fixed& old_obj)
 {
 	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &old_obj)
-		// fxp = old_obj.fxp;
 		fxp = old_obj.getRawBits();
 	return *this;
 }
@@ -121,10 +119,6 @@ Fixed& Fixed::operator-(const Fixed& old_obj)
 
 Fixed Fixed::operator*(const Fixed& old_obj)
 {
-	// Fixed	obj;
-	// obj.fxp = this->fxp * old_obj.fxp;
-	// obj.fxp = obj.toFloat();
-	// return obj;
 	this->fxp = (this->fxp * old_obj.fxp) >> fbits;
 	return *this;
 }
