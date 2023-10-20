@@ -27,8 +27,8 @@ class	Fixed
 		bool	operator >= (const Fixed& obj);	
 		bool	operator == (const Fixed& obj);
 		bool	operator != (const Fixed& obj);
-		Fixed&	operator+(const Fixed& old_obj);
-		Fixed&	operator-(const Fixed& old_obj);
+		Fixed	operator+(const Fixed& old_obj);
+		Fixed	operator-(const Fixed& old_obj);
 		Fixed	operator*(const Fixed& old_obj);
 		Fixed	operator/(const Fixed& old_obj);
 		Fixed	operator++(int);

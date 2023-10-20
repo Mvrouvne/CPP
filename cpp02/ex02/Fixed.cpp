@@ -104,28 +104,32 @@ bool	Fixed::operator != (const Fixed& obj)
 	return (this->fxp != obj.fxp);
 }
 
-Fixed& Fixed::operator+(const Fixed& old_obj)
+Fixed Fixed::operator+(const Fixed& old_obj)
 {
-	this->fxp = this->fxp + old_obj.fxp;
-	return *this;
+	Fixed	a(*this);
+	a.fxp = a.fxp + old_obj.fxp;
+	return a;
 }
 
-Fixed& Fixed::operator-(const Fixed& old_obj)
+Fixed Fixed::operator-(const Fixed& old_obj)
 {
-	this->fxp = this->fxp - old_obj.fxp;
-	return *this;
+	Fixed	a(*this);
+	a.fxp = a.fxp - old_obj.fxp;
+	return a;
 }
 
 Fixed Fixed::operator*(const Fixed& old_obj)
 {
-	this->fxp = (this->fxp * old_obj.fxp) >> fbits;
-	return *this;
+	Fixed	a(*this);
+	a.fxp = (a.fxp * old_obj.fxp) >> fbits;
+	return a;
 }
 
 Fixed Fixed::operator/(const Fixed& old_obj)
 {
-	this->fxp = (this->fxp / old_obj.fxp) << fbits;
-	return *this;
+	Fixed	a(*this);
+	a.fxp = (a.fxp / old_obj.fxp) << fbits;
+	return a;
 }
 
 Fixed	Fixed::operator++(int) // Post increment i++
