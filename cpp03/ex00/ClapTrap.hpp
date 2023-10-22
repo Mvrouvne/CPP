@@ -7,8 +7,8 @@ class	ClapTrap
 {
 	private:
 		ClapTrap();
-		ClapTrap(const ClapTrap& obj);
-		ClapTrap&	operator=(const ClapTrap& obj);
+		ClapTrap(const ClapTrap& old_obj);
+		ClapTrap&	operator=(const ClapTrap& old_obj);
 		~ClapTrap();
 		ClapTrap(std::string name);
 		std::string	name;
