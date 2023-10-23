@@ -34,24 +34,30 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
+	std::cout << "Parameterized constructor called" << std::endl;
+	Hit_Points = 10;
+	Energy_Points = 10;
+	Attack_Damage = 0;
 	this->name = name;
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (Hit_Points > 0 && Energy_Points > 0)
+	if (Energy_Points > 0)
 	{
 		Energy_Points -= 1;
-		Hit_Points -= 1;
+		Hit_Points -= Attack_Damage;
+		std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << Attack_Damage << " points of damage!" << std::endl;
 	}
-	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << Attack_Damage << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (amount < 0)
-		amount -= 0;
-	std::cout << "ClapTrap took damage of " << amount << " hit points!" << std::endl;
+	if (Hit_Points > 0)
+	{
+		Hit_Points -= amount;
+		std::cout << "ClapTrap took damage of " << amount << " hit points!" << std::endl;
+	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -59,7 +65,28 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (Energy_Points > 0)
 	{
 		Energy_Points -= 1;
-		amount += 1;
+		Hit_Points += amount;
+		std::cout << "ClapTrap repaired itself and gets " << amount << " hit points back" << std::endl;
 	}
-	std::cout << "ClapTrap repaired itself and gets " << amount << " hit points back" << std::endl;
 }
+
+void	ClapTrap::get_HitPoints()
+{
+	std::cout << Hit_Points << std::endl;
+}
+
+void	ClapTrap::get_EnergyPoints()
+{
+	std::cout << Energy_Points << std::endl;
+}
+void	ClapTrap::get_AttackPoints()
+{
+	std::cout << Attack_Damage << std::endl;
+}
+
+// ClapTrap	ClapTrap::target(std::string name)
+// {
+// 	ClapTrap	target_obj(name);
+
+// 	return target_obj;
+// }
