@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called" << std::endl;
 	Hit_Points = 10;
 	Energy_Points = 10;
 	Attack_Damage = 0;
@@ -10,7 +10,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap& old_obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	if (this != &old_obj)
 		*this = old_obj;
 }
@@ -29,12 +29,12 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& old_obj)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "Parameterized constructor called" << std::endl;
+	std::cout << "Parameterized ClapTrap constructor called" << std::endl;
 	Hit_Points = 10;
 	Energy_Points = 10;
 	Attack_Damage = 0;
