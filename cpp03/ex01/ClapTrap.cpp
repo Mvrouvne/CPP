@@ -34,7 +34,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
-	std::cout << "Parameterized constructor called" << std::endl;
+	std::cout << "ClapTrap Parameterized constructor called" << std::endl;
 	Hit_Points = 10;
 	Energy_Points = 10;
 	Attack_Damage = 0;

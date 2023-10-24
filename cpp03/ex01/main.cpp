@@ -4,7 +4,7 @@ int main()
 {
     ClapTrap    obj2("Clap");
     ScavTrap    obj("Marouane");
-    std::string target =  "Walid";
+    std::string target =  "Target";
 
     obj.attack(target);
     obj.attack(target);
@@ -20,7 +20,7 @@ int main()
     obj.get_HitPoints();
     std::cout << "Energy Points: ";
     obj.get_EnergyPoints();
-    std::cout << "Attack Points: ";
+    std::cout << "Attack Damage: ";
     obj.get_AttackPoints();
     std::cout << "------------------------" << std::endl;
 }

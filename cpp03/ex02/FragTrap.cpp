@@ -43,8 +43,5 @@ FragTrap::FragTrap(std::string name)
 
 void	FragTrap::highFiveGuys()
 {
-	std::string	high_five;
-	std::cout << "Give me High Five" << std::endl;
-	std::cin >> high_five;
-	std::cout << "Thanks ;)" << std::endl;
+	std::cout << "High Five!" << std::endl;
 }
