@@ -2,25 +2,23 @@
 
 int main()
 {
-    ClapTrap    obj2("Clap");
-    ScavTrap    obj("Marouane");
+    // ClapTrap    obj1("Clap");
+    ScavTrap    obj2("Marouane");
     std::string target =  "Target";
 
-    obj.attack(target);
-    obj.attack(target);
-    obj.beRepaired(5);
-    obj.guardGate();
     obj2.attack(target);
+    obj2.attack(target);
+    obj2.beRepaired(5);
+    obj2.guardGate();
     // obj.takeDamage(5);
     // obj.takeDamage(5);
-    obj.takeDamage(5);
+    obj2.takeDamage(5);
     std::cout << "------------------------" << std::endl;
-    
     std::cout << "Hit Points: ";
-    obj.get_HitPoints();
+    obj2.get_HitPoints();
     std::cout << "Energy Points: ";
-    obj.get_EnergyPoints();
+    obj2.get_EnergyPoints();
     std::cout << "Attack Damage: ";
-    obj.get_AttackPoints();
+    obj2.get_AttackPoints();
     std::cout << "------------------------" << std::endl;
 }

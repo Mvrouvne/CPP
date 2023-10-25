@@ -43,7 +43,7 @@ ClapTrap::ClapTrap(std::string name)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (Energy_Points > 0)
+	if (Energy_Points > 0 && Hit_Points > 0)
 	{
 		Energy_Points -= 1;
 		Hit_Points -= Attack_Damage;
