@@ -6,7 +6,13 @@
 
 class	Dog : public Animal
 {
-
+	public:
+		Dog();
+		Dog(const Dog& old_obj);
+		Dog&	operator=(const Dog& old_obj);
+		~Dog();
+		void	makeSound() const;
+		std::string	getType() const;
 };
 
 #endif

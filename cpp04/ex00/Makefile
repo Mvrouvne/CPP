@@ -3,9 +3,9 @@ NAME = Animal
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp\
-		ClapTrap.cpp\
-		ScavTrap.cpp\
-		FragTrap.cpp\
+		Animal.cpp\
+		Cat.cpp\
+		Dog.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
