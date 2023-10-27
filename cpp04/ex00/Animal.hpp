@@ -2,8 +2,6 @@
 #define ANIMAL_HPP
 
 #include <iostream>
-#include "Cat.hpp"
-#include "Dog.hpp"
 
 class	Animal
 {
@@ -14,8 +12,8 @@ class	Animal
 		Animal(const Animal& old_obj);
 		Animal&	operator=(const Animal& old_obj);
 		~Animal();
-		void	makeSound() const;
-		std::string	getType() const;
+		virtual void	makeSound() const;
+		virtual std::string	getType() const;
 };
 
 #endif
