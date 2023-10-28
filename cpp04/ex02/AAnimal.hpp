@@ -1,5 +1,5 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+#define AANIMAL_HPP
 
 #include <iostream>
 
@@ -12,7 +12,7 @@ class	Animal
 		Animal(const Animal& old_obj);
 		Animal&	operator=(const Animal& old_obj);
 		virtual ~Animal();
-		virtual void	makeSound() const;
+		virtual void	makeSound() const = 0;
 		virtual std::string	getType() const;
 };
 
