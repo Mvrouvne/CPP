@@ -9,6 +9,7 @@ WrongCat::WrongCat()
 WrongCat::WrongCat(const WrongCat& old_obj)
 {
 	std::cout << "WrongCat Copy constructor called" << std::endl;
+	type = "WrongCat";
 	*this = old_obj;
 }
 

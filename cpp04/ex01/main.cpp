@@ -25,5 +25,9 @@ int main()
 		x++;
 	}
 
+	// Cat	obj;
+	// obj.setCat("Marouane");
+	// std::cout << obj.getCat(2) << std::endl;
+
 	return 0;
 }

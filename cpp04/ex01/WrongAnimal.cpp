@@ -9,6 +9,7 @@ WrongAnimal::WrongAnimal()
 WrongAnimal::WrongAnimal(const WrongAnimal& old_obj)
 {
 	std::cout << "WrongAnimal Copy constructor called" << std::endl;
+	this->type = "WrongAnimal";
 	*this = old_obj;
 }
 

@@ -10,6 +10,7 @@ Dog::Dog()
 Dog::Dog(const Dog& old_obj)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
+	DogBrain = new Brain();
 	*this = old_obj;
 }
 
@@ -38,4 +39,14 @@ void    Dog::makeSound() const
 std::string Dog::getType() const
 {
     return this->type;
+}
+
+void	Dog::setDog(std::string i)
+{
+	DogBrain->set_ideas(i);
+}
+
+std::string Dog::getDog(int index)
+{
+	return DogBrain->get_ideas(index);
 }
