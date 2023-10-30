@@ -11,6 +11,7 @@ class	Cure : public AMateria
 		Cure(const Cure& old_obj);
 		Cure&	operator=(const Cure& old_obj);
 		~Cure();
+		AMateria*	clone() const;
 };
 
 #endif

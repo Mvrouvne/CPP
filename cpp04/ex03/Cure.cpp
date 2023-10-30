@@ -16,11 +16,18 @@ Cure&	Cure::operator=(const Cure& old_obj)
 {
 	if (this != &old_obj)
 	{
-
+		this->type = old_obj.type;
 	}
 }
 
 Cure::~Cure()
 {
 	std::cout << "Cure default constructor called" << std::endl;
+}
+
+AMateria* Cure::clone() const
+{
+	Cure	*cure_obj = new Cure();
+
+	return cure_obj;
 }
