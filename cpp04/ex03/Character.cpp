@@ -34,7 +34,8 @@ Character::~Character()
 	// std::cout << "Character Destructor called" << std::endl;
 	for(int x = 0; x < 4; x++)
 	{
-		delete inventory[x];
+		if (inventory[x])
+			delete inventory[x];
 	}
 }
 
@@ -45,15 +46,12 @@ std::string const & Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
-	if (m)
+	for(int x = 0; x < 4; x++)
 	{
-		for(int x = 0; x < 4; x++)
+		if (!inventory[x])
 		{
-			if (!inventory[x])
-			{
-				inventory[x] = m;
-				break;
-			}
+			inventory[x] = m;
+			break;
 		}
 	}
 }
@@ -64,6 +62,7 @@ void	Character::unequip(int idx)
 	{
 		if (x == idx && inventory[x])
 		{
+			delete inventory[x];
 			inventory[x] = NULL;
 			break;
 		}
@@ -72,13 +71,17 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx < 4)
+	if (inventory[idx] && idx >= 0 && idx < 4)
 		inventory[idx]->use(target);
 }
 
 Character::Character(std::string name)
 {
 	// std::cout << "Character Parametrized constructor called" << std::endl;
+	for(int x = 0; x < 4; x++)
+	{
+		inventory[x] = NULL;
+	}
 	this->name = name;
 }
 
@@ -86,6 +89,7 @@ void	Character::get_inventory()
 {
 	for(int x = 0; x < 4; x++)
 	{
-		std::cout << inventory[x]->getType() << std::endl;
+		if (inventory[x])
+			std::cout << inventory[x]->getType() << std::endl;
 	}
 }
