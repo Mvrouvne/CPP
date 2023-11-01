@@ -2,13 +2,13 @@
 
 Ice::Ice()
 {
-	std::cout << "Ice Default constructor called" << std::endl;
+	// std::cout << "Ice Default constructor called" << std::endl;
 	type = "ice";
 }
 
 Ice::Ice(const Ice& old_obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
@@ -18,11 +18,12 @@ Ice&	Ice::operator=(const Ice& old_obj)
 	{
 		this->type = old_obj.type;
 	}
+	return *this;
 }
 
 Ice::~Ice()
 {
-	std::cout << "Ice default constructor called" << std::endl;
+	// std::cout << "Ice default constructor called" << std::endl;
 }
 
 AMateria* Ice::clone() const
@@ -30,4 +31,9 @@ AMateria* Ice::clone() const
 	Ice	*ice_obj = new Ice();
 
 	return ice_obj;
+}
+
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
