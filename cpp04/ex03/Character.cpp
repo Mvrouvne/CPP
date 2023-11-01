@@ -81,3 +81,11 @@ Character::Character(std::string name)
 	// std::cout << "Character Parametrized constructor called" << std::endl;
 	this->name = name;
 }
+
+void	Character::get_inventory()
+{
+	for(int x = 0; x < 4; x++)
+	{
+		std::cout << inventory[x]->getType() << std::endl;
+	}
+}

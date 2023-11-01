@@ -5,6 +5,10 @@
 MateriaSource::MateriaSource()
 {
 	// std::cout << "MateriaSource Default constructor called" << std::endl;
+	for(int x = 0; x < 4; x++)
+	{
+		materiasource[x] = NULL;
+	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource& old_obj)
