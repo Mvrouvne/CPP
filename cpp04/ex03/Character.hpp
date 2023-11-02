@@ -4,11 +4,18 @@
 #include <iostream>
 #include "AMateria.hpp"
 
+struct	List
+{
+	AMateria*		addresse;
+	struct List*	next;
+};
+
 class	Character : public ICharacter
 {
 	private:
 		std::string name;
 		AMateria*	inventory[4];
+		List*		head;
 	public:
 		Character();
 		Character(const Character& old_obj);
@@ -22,10 +29,9 @@ class	Character : public ICharacter
 		void get_inventory();
 };
 
-struct	List
-{
-	AMateria*	addresse;
-	struct List *next;
-};
+
+List	*ft_lstnew(AMateria* address);
+List	*ft_lstlast(List* lst);
+void	ft_lstadd_back(List** lst, List* new_node);
 
 #endif
