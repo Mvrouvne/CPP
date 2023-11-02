@@ -58,12 +58,15 @@ void	Character::equip(AMateria* m)
 
 void	Character::unequip(int idx)
 {
+	// List	hold;
+
 	for(int x = 0; x < 4; x++)
 	{
 		if (x == idx && inventory[x])
 		{
-			delete inventory[x];
-			inventory[x] = NULL;
+			// inventory[x] = hold.addresse;
+			// hold.addresse = ne
+			// inventory[x] = NULL;
 			break;
 		}
 	}

@@ -22,4 +22,10 @@ class	Character : public ICharacter
 		void get_inventory();
 };
 
+struct	List
+{
+	AMateria*	addresse;
+	struct List *next;
+};
+
 #endif
