@@ -13,7 +13,7 @@ int main()
 
 	delete j;//should not create a leak
 	delete i;
-
+	
 	Animal *obj[4];
 
 	obj[0] = new Dog();
@@ -26,6 +26,15 @@ int main()
 		delete obj[x];
 		x++;
 	}
+	
+	// Animal obj; // won't work
+	
+	// Cat	obj;
+	// obj.setCat("Marouane");
+	// for(int x = 0; x < 100; x++)
+	// {
+	// 	std::cout << obj.getCat(x) << std::endl;
+	// }
 
 	return 0;
 }

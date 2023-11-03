@@ -40,3 +40,13 @@ std::string Dog::getType() const
 {
     return this->type;
 }
+
+void	Dog::setDog(std::string i)
+{
+	DogBrain->set_ideas(i);
+}
+
+std::string Dog::getDog(int index)
+{
+	return DogBrain->get_ideas(index);
+}

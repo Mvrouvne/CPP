@@ -40,3 +40,13 @@ std::string	Cat::getType() const
 {
 	return this->type;
 }
+
+void	Cat::setCat(std::string i)
+{
+	CatBrain->set_ideas(i);
+}
+
+std::string Cat::getCat(int index)
+{
+	return CatBrain->get_ideas(index);
+}

@@ -29,3 +29,16 @@ Brain::~Brain()
 {
 	std::cout << "Brain Destructor called" << std::endl;
 }
+
+void	Brain::set_ideas(std::string i)
+{
+	for(int x = 0; x < 100; x++)
+	{
+		ideas[x] = i;
+	}
+}
+
+std::string	Brain::get_ideas(int index)
+{
+	return ideas[index];
+}

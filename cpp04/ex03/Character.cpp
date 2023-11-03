@@ -65,9 +65,10 @@ void	Character::equip(AMateria* m)
 		if (!inventory[x])
 		{
 			inventory[x] = m;
-			break;
+			return ;
 		}
 	}
+	delete m;
 }
 
 void	Character::unequip(int idx)
