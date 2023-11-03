@@ -10,7 +10,6 @@ Cat::Cat()
 Cat::Cat(const Cat& old_obj)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
-	CatBrain = new Brain();
 	*this = old_obj;
 }
 

@@ -14,7 +14,6 @@ Animal::Animal(const Animal& old_obj)
 
 Animal&	Animal::operator=(const Animal& old_obj)
 {
-	std::cout << "Assignment" << std::endl;
 	if (this != &old_obj)
 	{
 		this->type = old_obj.type;

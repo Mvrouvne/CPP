@@ -10,7 +10,6 @@ Dog::Dog()
 Dog::Dog(const Dog& old_obj)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
-	DogBrain = new Brain();
 	*this = old_obj;
 }
 
