@@ -23,7 +23,10 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& old_obj)
 	{
 		for(int x = 0; x < 4; x++)
 		{
-			this->materiasource[x] = old_obj.materiasource[x];
+			if (old_obj.materiasource[x])
+				this->materiasource[x] = old_obj.materiasource[x]->clone();
+			else
+				this->materiasource[x] = NULL;
 		}
 	}
 	return *this;

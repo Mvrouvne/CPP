@@ -24,7 +24,10 @@ Character&	Character::operator=(const Character& old_obj)
 		this->name = old_obj.name;
 		for(int x = 0; x < 4; x++)
 		{
-			this->inventory[x] = old_obj.inventory[x];
+			if (old_obj.inventory[x])
+				this->inventory[x] = old_obj.inventory[x]->clone();
+			else
+			this->inventory[x] = NULL;
 		}
 	}
 	return *this;
@@ -33,7 +36,7 @@ Character&	Character::operator=(const Character& old_obj)
 Character::~Character()
 {
 	// std::cout << "Character Destructor called" << std::endl;
-	List* tmp;
+	List* tmp = NULL;
 	while (head)
 	{
 		tmp = head;
@@ -82,13 +85,14 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (inventory[idx] && idx >= 0 && idx < 4)
+	if (idx >= 0 && idx < 4 && inventory[idx])
 		inventory[idx]->use(target);
 }
 
 Character::Character(std::string name)
 {
 	// std::cout << "Character Parametrized constructor called" << std::endl;
+	head = NULL;
 	for(int x = 0; x < 4; x++)
 	{
 		inventory[x] = NULL;
