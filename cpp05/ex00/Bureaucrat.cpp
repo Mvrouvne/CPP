@@ -1,10 +1,9 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("Bureaucrat")
 {
 	std::cout << "Bureaucrat Default constructor called" << std::endl;
-	this->grade = 0;
-	// this->name = "Bureaucrat";
+	this->grade = 1;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
@@ -64,11 +63,12 @@ void	Bureaucrat::decrement_b()
 
 std::ostream&	operator<<(std::ostream& output, const Bureaucrat& obj)
 {
-	output << obj.getName();
-	output << obj.getGrade();
+	// output << obj.getName();
+	// output << obj.getGrade();
 
-	std::cout << obj.getName() << std::endl;
-	std::cout << obj.getGrade() << std::endl;
+	output << obj.getName();
+	output << ", bureaucrat grade ";
+	output << obj.getGrade();
 
 	return output;
 }
