@@ -12,8 +12,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 	setGrade(grade);
 }
 
-
-
 std::string Bureaucrat::getName() const
 {
 	return name;
@@ -53,12 +51,12 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 void	Bureaucrat::increment_b()
 {
-	setGrade(grade - 1);
+	setGrade(grade + 1);
 }
 
 void	Bureaucrat::decrement_b()
 {
-	setGrade(grade + 1);
+	setGrade(grade - 1);
 }
 
 std::ostream&	operator<<(std::ostream& output, const Bureaucrat& obj)
@@ -71,4 +69,13 @@ std::ostream&	operator<<(std::ostream& output, const Bureaucrat& obj)
 	output << obj.getGrade();
 
 	return output;
+}
+
+void	Bureaucrat::signForm()
+{
+	
+	try
+	{
+		if (get)
+	}
 }
