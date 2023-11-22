@@ -19,7 +19,10 @@ class	Bureaucrat
 		void	setGrade(int grade);
 		void	increment_b();
 		void	decrement_b();
+		static void	get_Sign(Form& obj);
 		void	signForm();
+		static bool	Sign;
+		static const std::string FormName;
 		class	GradeTooHighException : public std::exception
 		{
 			public:

@@ -1,8 +1,9 @@
 #include "Form.hpp"
 
-Form::Form() : name("Bureaucrat"), sign(false)
+Form::Form() : name("Form"), sign(false)
 {
 	std::cout << "Form default constructor called" << std::endl;
+	Bureaucrat::get_Sign(*this);
 }
 
 std::string	Form::getName() const
@@ -34,12 +35,11 @@ void	Form::beSigned(Bureaucrat& obj)
 		else if (obj.getGrade() > grade)
 			throw GradeTooLowException();
 	}
-	catch(Form& e)
+	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 		exit (0);
 	}
-
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

@@ -71,11 +71,18 @@ std::ostream&	operator<<(std::ostream& output, const Bureaucrat& obj)
 	return output;
 }
 
+void	Bureaucrat::get_Sign(Form& obj) : FormName(obj.getName())
+{
+	Sign = obj.get_Sign();
+}
+
 void	Bureaucrat::signForm()
 {
-	
 	try
 	{
-		if (get)
+		if (Sign)
+		{
+			std::cout << name << " signed " << 	
+		}
 	}
 }
