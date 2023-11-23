@@ -4,10 +4,12 @@
 #include <iostream>
 #include <exception>
 #include <ostream>
-#include "Form.hpp"
+// #include "Form.hpp"
+class	Form;
 
 class	Bureaucrat
 {
+	
 	private:
 		const std::string	name;
 		int					grade;
@@ -19,14 +21,18 @@ class	Bureaucrat
 		void	setGrade(int grade);
 		void	increment_b();
 		void	decrement_b();
-		static void	get_Sign(Form& obj);
-		void	signForm();
+		void	signForm(Form& obj);
 		class	GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
 		class	GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class	FormNotSignedException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat")
 {
@@ -71,13 +72,22 @@ std::ostream&	operator<<(std::ostream& output, const Bureaucrat& obj)
 	return output;
 }
 
-void	Bureaucrat::signForm()
+const char* Bureaucrat::FormNotSignedException::what() const throw()
+{
+	return "FormNotSigned";
+}
+
+void	Bureaucrat::signForm(Form& obj)
 {
 	try
 	{
-		if (Form::get_Sign())
-		{
-			std::cout << name << " signed " << 	
-		}
+		if (obj.get_Sign())
+			std::cout << this->name << " signed " << obj.getName() << std::endl;
+		else if (!obj.get_Sign())
+			throw FormNotSignedException();
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << this->name << " couldn't sign " << obj.getName() << " because " << e.what() << std::endl;
 	}
 }

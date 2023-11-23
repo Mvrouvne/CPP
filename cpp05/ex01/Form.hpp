@@ -4,7 +4,8 @@
 #include <iostream>
 #include <exception>
 #include <ostream>
-#include "Bureaucrat.hpp"
+
+class	Bureaucrat;
 
 class   Form
 {
@@ -15,6 +16,7 @@ class   Form
 		const int ExecuteGrade;
 	public:
 		Form();
+		Form(const std::string name, const int grade, const int ExecuteGrade);
 		std::string	getName() const;
 		bool	get_Sign() const;
 		int		get_Grade() const;

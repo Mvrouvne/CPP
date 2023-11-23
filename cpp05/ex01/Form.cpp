@@ -1,9 +1,25 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-Form::Form() : name("Form"), sign(false)
+Form::Form() : name("101Form"), sign(false), grade(50), ExecuteGrade(0)
 {
 	std::cout << "Form default constructor called" << std::endl;
-	Bureaucrat::get_Sign(*this);
+}
+
+Form::Form(const std::string name, const int grade, const int ExecuteGrade) : name(name), grade(grade), ExecuteGrade(ExecuteGrade)
+{
+	try
+	{
+		if (grade < 1)
+			throw GradeTooHighException();
+		else if (grade > 150)
+			throw GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		exit (0);
+	}
 }
 
 std::string	Form::getName() const
@@ -30,10 +46,12 @@ void	Form::beSigned(Bureaucrat& obj)
 {
 	try
 	{
-		if (obj.getGrade() < grade)
+		if (obj.getGrade() < 1)
 			throw GradeTooHighException();
-		else if (obj.getGrade() > grade)
+		else if (obj.getGrade() > 150)
 			throw GradeTooLowException();
+		else if (obj.getGrade() >= this->grade)
+			this->sign = true;
 	}
 	catch(const std::exception& e)
 	{
@@ -42,12 +60,12 @@ void	Form::beSigned(Bureaucrat& obj)
 	}
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return "Grade Too Hign!";
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return "Grade Too Low!";
 }
