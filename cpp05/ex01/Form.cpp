@@ -51,7 +51,11 @@ void	Form::beSigned(Bureaucrat& obj)
 		else if (obj.getGrade() > 150)
 			throw GradeTooLowException();
 		else if (obj.getGrade() >= this->grade)
+		{
+			std::cout << obj.getGrade() << " Hello" << std::endl;
+			std::cout << this->grade << " Hello" << std::endl;
 			this->sign = true;
+		}
 	}
 	catch(const std::exception& e)
 	{
