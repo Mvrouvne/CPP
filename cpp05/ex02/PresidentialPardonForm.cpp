@@ -1,0 +1,45 @@
+#include "PresidentialPardonForm.hpp"
+
+PresidentialPardonForm::PresidentialPardonForm()
+{
+	std::cout << "Presidential Default constructor called" << std::endl;
+	sign = 25;
+	exec = 5;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& old_obj)
+{
+	std::cout << "Presidential Copy constructor called" << std::endl;
+	*this = old_obj;
+}
+
+PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm& old_obj)
+{
+	if (this != &old_obj)
+	{
+		this->sign = sign;
+		this->exec = exec;
+		this->target = target;
+	}
+	return *this;
+}
+
+void	PresidentialPardonForm::setTarget(std::string target)
+{
+	this->target = target;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+{
+	this->target = target;
+}
+
+void    PresidentialPardonForm::inform()
+{
+    std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}
+
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+	std::cout << "Destructor called" << std::endl;
+}
