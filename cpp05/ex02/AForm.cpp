@@ -22,6 +22,26 @@ AForm::AForm(const std::string name, const int grade, const int ExecuteGrade) : 
 	}
 }
 
+AForm::AForm(AForm& old_obj)
+{
+	std::cout << "AForm Copy constructor called" << std::endl;
+	*this = old_obj;
+}
+
+AForm&	AForm::operator=(AForm& old_obj)
+{
+	if (this != &old_obj)
+	{
+		this->sign = old_obj.sign;
+	}
+	return *this;
+}
+
+AForm::~AForm()
+{
+	std::cout << "AForm Destructor called" << std::endl;
+}
+
 std::string	AForm::getName() const
 {
 	return name;

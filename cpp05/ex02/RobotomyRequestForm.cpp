@@ -37,8 +37,18 @@ RobotomyRequestFrom::RobotomyRequestFrom(std::string target)
 
 void    RobotomyRequestFrom::inform()
 {
-    static int time;
+	static bool	checker;
 
+	if (!checker)
+	{
+		std::cout << target << " as been robotomized successfully" << std::endl;
+		checker = false;
+	}
+	else
+	{
+		std::cout << "robotomy has failed" << std::endl;
+		checker = true;
+	}
 }
 
 RobotomyRequestFrom::~RobotomyRequestFrom()

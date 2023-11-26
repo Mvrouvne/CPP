@@ -17,6 +17,9 @@ class   Form
 	public:
 		Form();
 		Form(const std::string name, const int grade, const int ExecuteGrade);
+		Form(Form& old_obj);
+		Form&	operator=(Form& old_obj);
+		~Form();
 		std::string	getName() const;
 		bool	get_Sign() const;
 		int		get_Grade() const;
