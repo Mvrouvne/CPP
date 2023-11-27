@@ -19,6 +19,7 @@ class   PresidentialPardonForm : public AForm
         ~PresidentialPardonForm();
         void    setTarget(std::string target);
 		void	inform();
+        void	AbstractForm();
 };
 
 #endif

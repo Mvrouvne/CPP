@@ -1,6 +1,6 @@
-#include "RobotomyRequestFrom.hpp"
+#include "RobotomyRequestForm.hpp"
 
-RobotomyRequestFrom::RobotomyRequestFrom()
+RobotomyRequestForm::RobotomyRequestForm()
 {
 	std::cout << "Robotomy Default constructor called" << std::endl;
     std::cout << "Robotomy makes drilling noises" << std::endl;
@@ -8,50 +8,56 @@ RobotomyRequestFrom::RobotomyRequestFrom()
 	exec = 45;
 }
 
-RobotomyRequestFrom::RobotomyRequestFrom(RobotomyRequestFrom& old_obj)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm& old_obj)
 {
 	std::cout << "Robotomy Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
-RobotomyRequestFrom& RobotomyRequestFrom::operator=(RobotomyRequestFrom& old_obj)
+RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm& old_obj)
 {
 	if (this != &old_obj)
 	{
-		this->sign = sign;
-		this->exec = exec;
-		this->target = target;
+		this->sign = old_obj.sign;
+		this->exec = old_obj.exec;
+		this->target = old_obj.target;
 	}
 	return *this;
 }
 
-void	RobotomyRequestFrom::setTarget(std::string target)
+void	RobotomyRequestForm::setTarget(std::string target)
 {
 	this->target = target;
 }
 
-RobotomyRequestFrom::RobotomyRequestFrom(std::string target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
 {
     this->target = target;
 }
 
-void    RobotomyRequestFrom::inform()
+void    RobotomyRequestForm::inform()
 {
-	static bool	checker;
+	unsigned int	t = time(nullptr);
+	// static int	checker;
 
-	if (!checker)
+	if (t % 2 == 0)
 	{
-		std::cout << target << " as been robotomized successfully" << std::endl;
-		checker = false;
+		std::cout << target << " has been robotomized successfully" << std::endl;
+		// checker = true;
 	}
 	else
 	{
 		std::cout << "robotomy has failed" << std::endl;
-		checker = true;
+		// checker = false;
 	}
 }
 
-RobotomyRequestFrom::~RobotomyRequestFrom()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+
+void	RobotomyRequestForm::AbstractForm()
+{
+	return ;
 }

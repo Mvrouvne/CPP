@@ -3,22 +3,24 @@
 
 #include <iostream>
 #include <fstream>
+#include <time.h>
 #include "AForm.hpp"
 
-class   RobotomyRequestFrom : public AForm
+class   RobotomyRequestForm : public AForm
 {
     private:
         int sign;
         int exec;
         std::string target;
     public:
-        RobotomyRequestFrom();
-		RobotomyRequestFrom(std::string target);
-        RobotomyRequestFrom(RobotomyRequestFrom& old_obj);
-        RobotomyRequestFrom& operator=(RobotomyRequestFrom& old_obj);
-        ~RobotomyRequestFrom();
+        RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+        RobotomyRequestForm(RobotomyRequestForm& old_obj);
+        RobotomyRequestForm& operator=(RobotomyRequestForm& old_obj);
+        ~RobotomyRequestForm();
         void    setTarget(std::string target);
 		void	inform();
+        void	AbstractForm();
 };
 
 #endif

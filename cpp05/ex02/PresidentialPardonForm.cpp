@@ -17,9 +17,9 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 {
 	if (this != &old_obj)
 	{
-		this->sign = sign;
-		this->exec = exec;
-		this->target = target;
+		this->sign = old_obj.sign;
+		this->exec = old_obj.exec;
+		this->target = old_obj.target;
 	}
 	return *this;
 }
@@ -42,4 +42,9 @@ void    PresidentialPardonForm::inform()
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+
+void	PresidentialPardonForm::AbstractForm()
+{
+	return ;
 }

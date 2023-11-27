@@ -19,6 +19,7 @@ class   ShrubberyCreationForm : public AForm
         ~ShrubberyCreationForm();
         void    setTarget(std::string target);
         void    TreeCreation(std::string target);
+        void	AbstractForm();
 };
 
 #endif
