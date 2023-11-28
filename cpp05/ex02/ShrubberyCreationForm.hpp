@@ -20,6 +20,7 @@ class   ShrubberyCreationForm : public AForm
         void    setTarget(std::string target);
         void    TreeCreation(std::string target);
         void	AbstractForm();
+        // virtual void	execute(Bureaucrat const & executor);
 };
 
 #endif

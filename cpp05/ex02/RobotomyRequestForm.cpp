@@ -38,18 +38,20 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 void    RobotomyRequestForm::inform()
 {
 	unsigned int	t = time(nullptr);
-	// static int	checker;
+	static int	checker;
 
-	if (t % 2 == 0)
+	if (checker > 0)
 	{
+		if (checker % 2 == 0)
+			std::cout << target << " has been robotomized successfully" << std::endl;
+		else
+			std::cout << "robotomy has failed" << std::endl;
+	}
+	else if (t % 2 == 0)
 		std::cout << target << " has been robotomized successfully" << std::endl;
-		// checker = true;
-	}
 	else
-	{
 		std::cout << "robotomy has failed" << std::endl;
-		// checker = false;
-	}
+	checker++;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
