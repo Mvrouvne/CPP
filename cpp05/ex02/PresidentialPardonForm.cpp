@@ -1,4 +1,5 @@
 #include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
 {
@@ -47,4 +48,14 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void	PresidentialPardonForm::AbstractForm()
 {
 	return ;
+}
+
+void	PresidentialPardonForm::execute(Bureaucrat const & executor)
+{
+	if (executor.getGrade() > this->exec)
+		throw	GradeTooLowException();
+	else if (!get_Sign())
+		throw FormNotSignedException();
+	else
+		inform();
 }

@@ -1,4 +1,5 @@
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
@@ -62,4 +63,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void	RobotomyRequestForm::AbstractForm()
 {
 	return ;
+}
+
+void	RobotomyRequestForm::execute(Bureaucrat const & executor)
+{
+	if (executor.getGrade() > this->exec)
+		throw	GradeTooLowException();
+	else if (!get_Sign())
+		throw FormNotSignedException();
+	else
+		inform();
 }

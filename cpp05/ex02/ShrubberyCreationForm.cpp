@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
@@ -75,7 +76,12 @@ void	ShrubberyCreationForm::AbstractForm()
 	return ;
 }
 
-// void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
-// {
-// 	if (get_Sign() && executor->grade >= this->exec)
-// }
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
+{
+	if (executor.getGrade() > this->exec)
+		throw GradeTooLowException();
+	else if (!get_Sign())
+		throw FormNotSignedException();
+	else
+		this->TreeCreation(this->target);
+}
