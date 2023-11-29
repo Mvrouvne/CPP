@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat")
 {
@@ -55,6 +56,7 @@ void	Bureaucrat::setGrade(int grade)
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+		exit (0);
 	}
 }
 
@@ -88,4 +90,37 @@ std::ostream&	operator<<(std::ostream& output, const Bureaucrat& obj)
 	output << obj.getGrade();
 
 	return output;
+}
+
+const char* Bureaucrat::FormNotSignedException::what() const throw()
+{
+	return "AFormNotSigned";
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->name << " executed " << form.getName() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << this->name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::signForm(AForm& obj)
+{
+	try
+	{
+		if (obj.get_Sign())
+			std::cout << this->name << " signed " << obj.getName() << std::endl;
+		else if (!obj.get_Sign())
+			throw FormNotSignedException();
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << this->name << " couldn't sign " << obj.getName() << " because " << e.what() << std::endl;
+	}
 }

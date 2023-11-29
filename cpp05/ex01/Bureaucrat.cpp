@@ -13,7 +13,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 	setGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat& old_obj)
+Bureaucrat::Bureaucrat(Bureaucrat& old_obj) : name(old_obj.name)
 {
 	std::cout << "Buraucrat Copy constructor called" << std::endl;
 	*this = old_obj;
@@ -56,7 +56,6 @@ void	Bureaucrat::setGrade(int grade)
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
-		exit (0);
 	}
 }
 

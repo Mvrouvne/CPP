@@ -3,14 +3,14 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 {
-	// std::cout << "Shrubbery Default constructor called" << std::endl;
+	std::cout << "Shrubbery Default constructor called" << std::endl;
 	sign = 145;
 	exec = 137;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& old_obj)
 {
-	// std::cout << "Shrubbery Copy constructor called" << std::endl;
+	std::cout << "Shrubbery Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
@@ -30,7 +30,7 @@ void	ShrubberyCreationForm::setTarget(std::string target)
 	this->target = target;
 }
 
-void	ShrubberyCreationForm::TreeCreation(std::string target) const
+void	ShrubberyCreationForm::TreeCreation(std::string target)
 {
 	std::string tree;
 	std::ofstream	outfile(target + "_shrubbery");
@@ -63,17 +63,20 @@ void	ShrubberyCreationForm::TreeCreation(std::string target) const
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 {
-	sign = 145;
-	exec = 137;
 	this->target = target;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	ShrubberyCreationForm::AbstractForm()
+{
+	return ;
+}
+
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
 	if (executor.getGrade() > this->exec)
 		throw GradeTooLowException();

@@ -3,19 +3,19 @@
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat")
 {
-	std::cout << "Bureaucrat Default constructor called" << std::endl;
+	// std::cout << "Bureaucrat Default constructor called" << std::endl;
 	this->grade = 1;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
-	std::cout << "Bureaucrat Parametrized constructor called" << std::endl;
+	// std::cout << "Bureaucrat Parametrized constructor called" << std::endl;
 	setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat& old_obj) : name(old_obj.name)
 {
-	std::cout << "Buraucrat Copy constructor called" << std::endl;
+	// std::cout << "Buraucrat Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
@@ -30,7 +30,7 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat& old_obj)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat Destructor called" << std::endl;
+	// std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getName() const

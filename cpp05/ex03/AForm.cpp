@@ -1,9 +1,9 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("AForm"), sign(false), grade(50), ExecuteGrade(0)
+AForm::AForm() : name("101AForm"), sign(false), grade(50), ExecuteGrade(0)
 {
-	// std::cout << "AForm default constructor called" << std::endl;
+	std::cout << "AForm default constructor called" << std::endl;
 }
 
 AForm::AForm(const std::string name, const int grade, const int ExecuteGrade) : name(name), grade(grade), ExecuteGrade(ExecuteGrade)
@@ -18,12 +18,13 @@ AForm::AForm(const std::string name, const int grade, const int ExecuteGrade) : 
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
+		exit (0);
 	}
 }
 
 AForm::AForm(AForm& old_obj) : grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
 {
-	// std::cout << "AForm Copy constructor called" << std::endl;
+	std::cout << "AForm Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
@@ -38,7 +39,7 @@ AForm&	AForm::operator=(AForm& old_obj)
 
 AForm::~AForm()
 {
-	// std::cout << "AForm Destructor called" << std::endl;
+	std::cout << "AForm Destructor called" << std::endl;
 }
 
 std::string	AForm::getName() const
@@ -69,8 +70,12 @@ void	AForm::beSigned(Bureaucrat& obj)
 			throw GradeTooHighException();
 		else if (obj.getGrade() > 150)
 			throw GradeTooLowException();
-		else if (obj.getGrade() <= this->grade)
+		else if (obj.getGrade() >= this->grade)
+		{
+			std::cout << obj.getGrade() << " Hello" << std::endl;
+			std::cout << this->grade << " Hello" << std::endl;
 			this->sign = true;
+		}
 	}
 	catch(const std::exception& e)
 	{

@@ -3,7 +3,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm()
 {
-	// std::cout << "Robotomy Default constructor called" << std::endl;
+	std::cout << "Robotomy Default constructor called" << std::endl;
     std::cout << "Robotomy makes drilling noises" << std::endl;
 	sign = 72;
 	exec = 45;
@@ -11,7 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm()
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm& old_obj)
 {
-	// std::cout << "Robotomy Copy constructor called" << std::endl;
+	std::cout << "Robotomy Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
@@ -33,13 +33,10 @@ void	RobotomyRequestForm::setTarget(std::string target)
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 {
-	std::cout << "Robotomy makes drilling noises" << std::endl;
-	sign = 72;
-	exec = 45;
     this->target = target;
 }
 
-void    RobotomyRequestForm::inform() const
+void    RobotomyRequestForm::inform()
 {
 	unsigned int	t = time(nullptr);
 	static int	checker;
@@ -60,10 +57,15 @@ void    RobotomyRequestForm::inform() const
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void	RobotomyRequestForm::AbstractForm()
+{
+	return ;
+}
+
+void	RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
 	if (executor.getGrade() > this->exec)
 		throw	GradeTooLowException();
