@@ -3,14 +3,14 @@
 
 PresidentialPardonForm::PresidentialPardonForm()
 {
-	std::cout << "Presidential Default constructor called" << std::endl;
+	// std::cout << "Presidential Default constructor called" << std::endl;
 	sign = 25;
 	exec = 5;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& old_obj)
 {
-	std::cout << "Presidential Copy constructor called" << std::endl;
+	// std::cout << "Presidential Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
@@ -32,25 +32,22 @@ void	PresidentialPardonForm::setTarget(std::string target)
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
 {
+	sign = 25;
+	exec = 5;
 	this->target = target;
 }
 
-void    PresidentialPardonForm::inform()
+void    PresidentialPardonForm::inform() const
 {
     std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
-void	PresidentialPardonForm::AbstractForm()
-{
-	return ;
-}
-
-void	PresidentialPardonForm::execute(Bureaucrat const & executor)
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() > this->exec)
 		throw	GradeTooLowException();
