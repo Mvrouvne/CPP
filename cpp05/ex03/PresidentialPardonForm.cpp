@@ -39,7 +39,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 
 void    PresidentialPardonForm::inform() const
 {
-    std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    // std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()

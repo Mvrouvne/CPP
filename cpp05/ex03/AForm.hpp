@@ -19,7 +19,7 @@ class   AForm
 		AForm(const std::string name, const int grade, const int ExecuteGrade);
 		AForm(AForm& old_obj);
 		AForm&	operator=(AForm& old_obj);
-		~AForm();
+		virtual ~AForm();
 		std::string	getName() const;
 		bool	get_Sign() const;
 		int		get_Grade() const;

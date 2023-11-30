@@ -33,7 +33,7 @@ void	RobotomyRequestForm::setTarget(std::string target)
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 {
-	std::cout << "Robotomy makes drilling noises" << std::endl;
+	// std::cout << "Robotomy makes drilling noises" << std::endl;
 	sign = 72;
 	exec = 45;
     this->target = target;
