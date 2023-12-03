@@ -2,6 +2,7 @@
 #define ZOMBIE_H
 
 #include <iostream>
+#include <stdlib.h>
 
 class   Zombie
 {
