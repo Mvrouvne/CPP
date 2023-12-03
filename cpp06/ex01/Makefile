@@ -3,7 +3,7 @@ NAME = Serializer
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
 SRCS = main.cpp\
-		# Serializer.cpp\
+		Serializer.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
