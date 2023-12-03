@@ -1,9 +1,10 @@
-// #include "Serializer.hpp"
-#include <iostream>
+#include "Serializer.hpp"
 
 int	main()
 {
-	int	num1 = 42;
-	double num2 = num1;
-	std::cout << num2 << std::endl;
+	Data	st = {3, 'A', 2.3};
+	Serializer obj;
+	std::cout << "Before: " << st.int_data << std::endl;
+	obj->Serializer(st);
+	std::cout << "After: " << st.int_data << std::endl;
 }
