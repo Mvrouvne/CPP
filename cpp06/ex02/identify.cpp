@@ -22,30 +22,28 @@ ClassC::ClassC()
 
 Base* generate(void)
 {
-	unsigned int	t = time(NULL);
-	static int	check = 1;
-	if (t % 3 == 0)
+	if (rand() % 3 == 0)
 	{
 		ClassA *objA = new ClassA();
-		return objA;
+		return dynamic_cast<Base*>(objA); // trying to cast derived into base pointer (downcasting)
 	}
-	else if (t % 3 == 1)
+	else if (rand() % 3 == 1)
 	{
 		ClassB	*objB = new ClassB();
-		return objB;
+		return dynamic_cast<Base*>(objB);
 	}
 	else
 	{
 		ClassC	*objC = new ClassC();
-		return objC;
+		return dynamic_cast<Base*>(objC);
 	}
 	return NULL;
 }
 
-// void    identify(Base* p)
-// {
-
-// }
+void    identify(Base* p)
+{
+	std::cout << std::typeid(p).name();
+}
 
 // void    identify(Base& p)
 // {

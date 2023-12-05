@@ -2,7 +2,8 @@
 #define IDENTIFY_HPP
 
 #include <iostream>
-#include <time.h>
+#include <ctime>
+#include <typeinfo>
 
 class	Base
 {
@@ -28,8 +29,8 @@ class	ClassC : public Base
 		ClassC();
 };
 
-Base* generate(void);
-void    identify(Base* p);
-void    identify(Base& p);
+Base*	generate(void);
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif
