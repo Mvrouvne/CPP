@@ -7,17 +7,17 @@ Base::~Base()
 
 ClassA::ClassA()
 {
-	std::cout << "ClassA Constructor called" << std::endl;
+	// std::cout << "ClassA Constructor called" << std::endl;
 }
 
 ClassB::ClassB()
 {
-	std::cout << "ClassB Constructor called" << std::endl;
+	// std::cout << "ClassB Constructor called" << std::endl;
 }
 
 ClassC::ClassC()
 {
-	std::cout << "ClassC Constructor called" << std::endl;
+	// std::cout << "ClassC Constructor called" << std::endl;
 }
 
 Base* generate(void)
@@ -42,10 +42,41 @@ Base* generate(void)
 
 void    identify(Base* p)
 {
-	std::cout << std::typeid(p).name();
+	if (dynamic_cast<ClassA*>(p))
+		std::cout << "Type is: ClassA" << std::endl;
+	else if (dynamic_cast<ClassB*>(p))
+		std::cout << "Type is: ClassB" << std::endl;
+	else if (dynamic_cast<ClassC*>(p))
+		std::cout << "Type is ClassC" << std::endl;
 }
 
-// void    identify(Base& p)
-// {
-
-// }
+void    identify(Base& p)
+{
+	try
+	{
+		p = dynamic_cast<ClassA&>(p);
+		std::cout << "Type is: ClassA" << std::endl;
+	}
+	catch (std::bad_cast& b)
+	{
+		// std::cout << "Unknown type" << std::endl;
+	}
+	try
+	{
+		p = dynamic_cast<ClassB&>(p);
+		std::cout << "Type is: ClassB" << std::endl;
+	}
+	catch (std::bad_cast& b)
+	{
+		// std::cout << "Unknown type" << std::endl;
+	}
+	try
+	{
+		p = dynamic_cast<ClassC&>(p);
+		std::cout << "Type is ClassC" << std::endl;
+	}
+	catch (std::bad_cast& b)
+	{
+		// std::cout << "Unknown type" << std::endl;
+	}
+}

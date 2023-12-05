@@ -3,7 +3,8 @@
 int main()
 {
 	srand(time(NULL));
-	generate();
-	generate();
-	generate();
+	// generate();
+	// generate();
+	// generate();
+	identify(*generate());
 }
