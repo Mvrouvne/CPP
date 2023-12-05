@@ -25,7 +25,7 @@ Base* generate(void)
 	if (rand() % 3 == 0)
 	{
 		ClassA *objA = new ClassA();
-		return dynamic_cast<Base*>(objA); // trying to cast derived into base pointer (downcasting)
+		return dynamic_cast<Base*>(objA); // trying to cast derived into base pointer (upcasting)
 	}
 	else if (rand() % 3 == 1)
 	{
@@ -60,23 +60,27 @@ void    identify(Base& p)
 	catch (std::bad_cast& b)
 	{
 		// std::cout << "Unknown type" << std::endl;
+		try
+		{
+			p = dynamic_cast<ClassB&>(p);
+			std::cout << "Type is: ClassB" << std::endl;
+		}
+		catch (std::bad_cast& b)
+		{
+			// std::cout << "Unknown type" << std::endl;
+			try
+			{
+				p = dynamic_cast<ClassC&>(p);
+				std::cout << "Type is ClassC" << std::endl;
+			}
+			catch (std::bad_cast& b)
+			{
+				std::cout << "ERROR!" << std::endl;
+				
+			}// std::cout << "Unknown type" << std::endl;
+		}
 	}
-	try
-	{
-		p = dynamic_cast<ClassB&>(p);
-		std::cout << "Type is: ClassB" << std::endl;
-	}
-	catch (std::bad_cast& b)
-	{
-		// std::cout << "Unknown type" << std::endl;
-	}
-	try
-	{
-		p = dynamic_cast<ClassC&>(p);
-		std::cout << "Type is ClassC" << std::endl;
-	}
-	catch (std::bad_cast& b)
-	{
-		// std::cout << "Unknown type" << std::endl;
-	}
+	// worked with exceptions because of reference cant take null so dynamic_cast
+	//  throws exception instead of nullptr in *
+	// upcasting is when we move up in the hierarchy
 }
