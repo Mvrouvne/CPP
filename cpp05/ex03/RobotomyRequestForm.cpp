@@ -41,7 +41,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 
 void    RobotomyRequestForm::inform() const
 {
-	unsigned int	t = time(nullptr);
+	unsigned int	t = time(NULL);
 	static int	checker;
 
 	if (checker > 0)

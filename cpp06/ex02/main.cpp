@@ -9,7 +9,7 @@ void	fun()
 
 int main()
 {
-	srand(time(NULL));
+
 	// generate();
 	// generate();
 	// generate();
@@ -18,6 +18,14 @@ int main()
 	// generate();
 	// generate();
 	identify(*generate());
+	// identify(*generate());
+	// identify(*generate());
+	// identify(*generate());
+	// identify(*generate());
+	// identify(*generate());
+	// identify(*generate());
+	// identify(*generate());
+	// identify(*generate());
 	// Base *base = new ClassA;
 	// std::cout << dynamic_cast<ClassA*>(*base);
 }
