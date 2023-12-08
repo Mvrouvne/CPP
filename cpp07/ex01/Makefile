@@ -1,4 +1,4 @@
-NAME = whatever
+NAME = iter
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 

@@ -23,20 +23,11 @@ ClassC::ClassC()
 Base*	generate_help(int x)
 {
 	if (x % 3 == 0)
-	{
-		ClassA *objA = new ClassA();
-		return dynamic_cast<Base*>(objA); // trying to cast derived into base pointer (upcasting)
-	}
+		return new ClassA();
 	else if (x % 3 == 1)
-	{
-		ClassB	*objB = new ClassB();
-		return dynamic_cast<Base*>(objB);
-	}
+		return new ClassB();
 	else
-	{
-		ClassC	*objC = new ClassC();
-		return dynamic_cast<Base*>(objC);
-	}
+		return new ClassC();
 	return NULL;
 }
 
@@ -49,21 +40,18 @@ Base* generate(void)
 	{
 		if (rand() % 3 == 0)
 		{
-			ClassA *objA = new ClassA();
 			x++;
-			return dynamic_cast<Base*>(objA); // trying to cast derived into base pointer (upcasting)
+			return new ClassA();
 		}
 		else if (rand() % 3 == 1)
 		{
-			ClassB	*objB = new ClassB();
 			x++;
-			return dynamic_cast<Base*>(objB);
+			return new ClassB();
 		}
 		else
 		{
-			ClassC	*objC = new ClassC();
 			x++;
-			return dynamic_cast<Base*>(objC);
+			return new ClassC();
 		}
 	}
 	else
