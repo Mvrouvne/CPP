@@ -71,6 +71,7 @@
         "iterator": "cpp",
         "utility": "cpp",
         "filesystem": "cpp",
-        "charconv": "cpp"
+        "charconv": "cpp",
+        "*.tpp": "cpp"
     }
 }
