@@ -8,6 +8,7 @@ Array<T>::Array()
 template <typename T>
 Array<T>::Array(unsigned int n)
 {
+	this->n = n;
 	array = new T[n];
 }
 
@@ -24,9 +25,9 @@ Array<T>&	Array<T>::operator=(Array& old_obj)
 	{
 		// this->array = new T[sizeof(old_obj->array) / sizeof(old_obj->array[0])];
 		this->array = new T[old_obj.n];
-		for(int x = 0; x < old_obj.n; x++)
-			this->array[x] = old_obj->array[x];
-		this.n = old_obj.n;
+		for(unsigned int x = 0; x < old_obj.n; x++)
+			this->array[x] = old_obj.array[x];
+		this->n = old_obj.n;
 	}
 	return *this;
 }

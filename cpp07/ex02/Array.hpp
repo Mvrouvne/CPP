@@ -14,19 +14,16 @@ class	Array
 		Array();
 		Array(unsigned int n);
 		Array(Array& old_obj);
-		Array& operator=(Array& old_obj);
-		void	get_arr(const int index) const
+		Array&	operator=(Array& old_obj);
+		int&	operator[](unsigned int index)
 		{
-			try
-			{
-				if (index < 0 || index > n)
-					throw indexOutofBoudsException();
-				std::cout << array[index] << std::endl;
-			}
-			catch (std::exception& e)
-			{
-				std::cout << e.what() << std::endl;
-			}
+			if (index < 0 || index >= n)
+				throw indexOutofBoudsException();
+			return array[index];
+		}
+		~Array()
+		{
+			delete[] array;
 		}
 		int	size() const
 		{
@@ -39,7 +36,7 @@ class	Array
 				{
 					return "index is out of bounds!";
 				}
-		}
+		};
 };
 
 #include "Array.tpp"
