@@ -1,9 +1,8 @@
-NAME = Span
+NAME = MutantStack
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 SRCS = main.cpp\
-		Span.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 

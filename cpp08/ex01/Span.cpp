@@ -45,7 +45,7 @@ int	Span::shortestSpan()
 	int	result = 0;
 	std::sort(SpanVec.begin(), SpanVec.end());
 	std::vector<int>::iterator	it1 = SpanVec.begin();
-	std::vector<int>::iterator	it2 = std::prev(SpanVec.begin());
+	std::vector<int>::iterator	it2 = SpanVec.begin() - 1;
 	it1++;
 	it2++;
 	result = *it1 - *it2;
@@ -65,7 +65,7 @@ int	Span::longestSpan()
 		throw	std::invalid_argument("Container can't be empty nor equal to 1!");
 	std::sort(SpanVec.begin(), SpanVec.end());
 	std::vector<int>::iterator	it1 = SpanVec.begin();
-	std::vector<int>::iterator	it2 = std::prev(SpanVec.end());
+	std::vector<int>::iterator	it2 = SpanVec.end() - 1;
 	return (*it2 - *it1);
 }
 
