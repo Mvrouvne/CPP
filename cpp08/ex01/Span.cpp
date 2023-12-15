@@ -71,7 +71,10 @@ int	Span::longestSpan()
 
 void	Span::addNumSkip(std::vector<int> vec)
 {
-	SpanVec.insert(SpanVec.end() - 1, vec.begin());
+	if (SpanVec.empty())
+		SpanVec.insert(SpanVec.begin(), vec.begin(), vec.end());
+	else
+		SpanVec.insert(SpanVec.end(), vec.begin(), vec.end());
 	if (SpanVec.size() > N)
 		throw	std::invalid_argument("Span is filled");
 }
