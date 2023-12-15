@@ -21,13 +21,13 @@ AForm::AForm(const std::string name, const int grade, const int ExecuteGrade) : 
 	}
 }
 
-AForm::AForm(AForm& old_obj) : grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
+AForm::AForm(const AForm& old_obj) : grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
 {
 	// std::cout << "AForm Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
-AForm&	AForm::operator=(AForm& old_obj)
+AForm&	AForm::operator=(const AForm& old_obj)
 {
 	if (this != &old_obj)
 	{

@@ -14,8 +14,8 @@ class   ShrubberyCreationForm : public AForm
     public:
         ShrubberyCreationForm();
         ShrubberyCreationForm(std::string target);
-        ShrubberyCreationForm(ShrubberyCreationForm& old_obj);
-        ShrubberyCreationForm& operator=(ShrubberyCreationForm& old_obj);
+        ShrubberyCreationForm(const ShrubberyCreationForm& old_obj);
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& old_obj);
         ~ShrubberyCreationForm();
         void    setTarget(std::string target);
         void    TreeCreation(std::string target) const;

@@ -8,8 +8,8 @@ class   Intern
 {
     public:
         Intern();
-        Intern(Intern& old_obj);
-        Intern& operator=(Intern& old_obj);
+        Intern(const Intern& old_obj);
+        Intern& operator=(const Intern& old_obj);
         ~Intern();
         AForm*    makeForm(std::string formName, std::string formTarget);
 };

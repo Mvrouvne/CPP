@@ -9,13 +9,13 @@ RobotomyRequestForm::RobotomyRequestForm()
 	exec = 45;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm& old_obj)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& old_obj)
 {
 	// std::cout << "Robotomy Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm& old_obj)
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& old_obj)
 {
 	if (this != &old_obj)
 	{

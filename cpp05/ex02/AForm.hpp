@@ -17,8 +17,8 @@ class   AForm
 	public:
 		AForm();
 		AForm(const std::string name, const int grade, const int ExecuteGrade);
-		AForm(AForm& old_obj);
-		AForm&	operator=(AForm& old_obj);
+		AForm(const AForm& old_obj);
+		AForm&	operator=(const AForm& old_obj);
 		~AForm();
 		std::string	getName() const;
 		bool	get_Sign() const;

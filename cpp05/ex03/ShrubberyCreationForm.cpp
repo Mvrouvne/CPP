@@ -8,13 +8,13 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 	exec = 137;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& old_obj)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& old_obj)
 {
 	// std::cout << "Shrubbery Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& old_obj)
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& old_obj)
 {
 	if (this != &old_obj)
 	{

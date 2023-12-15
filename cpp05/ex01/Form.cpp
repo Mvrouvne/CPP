@@ -21,31 +21,17 @@ Form::Form(const std::string name, const int grade, const int ExecuteGrade) : na
 	}
 }
 
-Form::Form(Form& old_obj) : grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
+Form::Form(const Form& old_obj) : grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
 {
 	std::cout << "Form Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
-Form&	Form::operator=(Form& old_obj)
+Form&	Form::operator=(const Form& old_obj)
 {
 	if (this != &old_obj)
 	{
 		this->sign = old_obj.sign;
-	}
-	return *this;
-}
-
-Form::~Form()
-{
-	std::cout << "Form Destructor called" << std::endl;
-}
-
-Form&	Form::operator=(Form& old_obj)
-{
-	if (this != &old_obj)
-	{
-		this->sign = sign;
 	}
 	return *this;
 }

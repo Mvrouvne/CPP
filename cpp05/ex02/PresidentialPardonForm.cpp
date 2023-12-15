@@ -8,13 +8,13 @@ PresidentialPardonForm::PresidentialPardonForm()
 	exec = 5;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& old_obj)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& old_obj)
 {
 	// std::cout << "Presidential Copy constructor called" << std::endl;
 	*this = old_obj;
 }
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm& old_obj)
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& old_obj)
 {
 	if (this != &old_obj)
 	{

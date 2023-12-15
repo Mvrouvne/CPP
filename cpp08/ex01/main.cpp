@@ -2,7 +2,7 @@
 
 int	main()
 {
-	Span obj(5);
+	Span obj = Span(5);
 
 	try
 	{
@@ -18,5 +18,4 @@ int	main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-
 }

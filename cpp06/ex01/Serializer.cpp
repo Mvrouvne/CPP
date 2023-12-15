@@ -5,14 +5,15 @@ Serializer::Serializer()
 	// std::cout << "Serializer Default constructor called" << std::endl;
 }
 
-Serializer::Serializer(Serializer& old_obj)
+Serializer::Serializer(const Serializer& old_obj)
 {
 	*this = old_obj;
 }
 
-Serializer&	Serializer::operator=(Serializer& old_obj)
+Serializer&	Serializer::operator=(const Serializer& old_obj)
 {
-	return old_obj;
+	(void)old_obj;
+	return *this;
 }
 
 Serializer::~Serializer()

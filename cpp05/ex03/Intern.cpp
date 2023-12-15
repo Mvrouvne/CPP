@@ -12,12 +12,12 @@ Intern::Intern()
 	// std::cout << "Intern Default constructor called" << std::endl;
 }
 
-Intern::Intern(Intern& old_obj)
+Intern::Intern(const Intern& old_obj)
 {
 	*this = old_obj;
 }
 
-Intern&	Intern::operator=(Intern& old_obj)
+Intern&	Intern::operator=(const Intern& old_obj)
 {
 	(void)old_obj;
 	return *this;

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include <vector>
 
 class	Span
 {
@@ -12,12 +13,13 @@ class	Span
 	public:
 		Span();
 		Span(unsigned int N);
-		Span(Span& old_obj);
-		Span&	operator=(Span& old_obj);
+		Span(const Span& old_obj);
+		Span&	operator=(const Span& old_obj);
 		~Span();
 		void	addNumber(int to_add);
 		int	shortestSpan();
 		int	longestSpan();
+		void	addNumSkip(std::vector<int> vec);
 };
 
 #endif
