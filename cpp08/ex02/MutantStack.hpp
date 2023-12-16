@@ -8,11 +8,21 @@ template<typename T>
 class   MutantStack : public std::stack<T>
 {
 	public:
-		// T*   elements[]:
-		// MutantStack();
-		// MutantStack(const MutantStack& old_obj);
-		// MutantStack&	operator=(const MutantStack& old_obj);
-		// ~MutantStack();
+		MutantStack()
+		{
+		}
+		MutantStack(const MutantStack& old_obj)
+		{
+			*this = old_obj;
+		}
+		MutantStack&	operator=(const MutantStack& old_obj)
+		{
+			return *this;
+		}
+		~MutantStack()
+		{
+			
+		}
 		typedef typename std::deque<T>::iterator iterator; // std::deque<T>::iterator is an independent name that's why we did typename
 		iterator begin()
 		{
