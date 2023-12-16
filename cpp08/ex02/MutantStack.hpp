@@ -7,15 +7,37 @@
 template<typename T>
 class   MutantStack : public std::stack<T>
 {
+    protected:
     public:
+        T*   elements[]:
 		// MutantStack();
 		// MutantStack(const MutantStack& old_obj);
 		// MutantStack&	operator=(const MutantStack& old_obj);
 		// ~MutantStack();
-        static void    iterator()
+        class   iterator
         {
-            std::cout << "iterator" << std::endl;
-        }
+            iterator(T* ptr)
+            {
+                elements = ptr;
+            }
+            iterator&   operator++()
+            {
+                elements++;
+                retrun *this:
+            }
+            iterator&   operator--()
+            {
+                elements--;
+                return *this;
+            }
+            iterator&   begin()
+            {
+                return  iterator(&elements[0]);
+            }
+            iterator&   end()
+            {
+                return iterators(&elements + size);
+            }
+        };
 };
-
 #endif
