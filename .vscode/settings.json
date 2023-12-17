@@ -73,6 +73,8 @@
         "filesystem": "cpp",
         "charconv": "cpp",
         "*.tpp": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     }
 }

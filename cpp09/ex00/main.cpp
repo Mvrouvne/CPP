@@ -4,18 +4,23 @@ int	main(int ac, char** av)
 {
 	if (ac == 2)
 	{
-		std::string read;
+		std::string d_v;
+		std::string	tmp;
 		std::ifstream	infile;
 		infile.open(av[1]);
-		while (infile)
+		if (!infile.is_open())
+			error_msg("could not open file");
+		while (!infile.eof())
 		{
-			infile >> read;
-			std::cout << read << std::endl;
+			infile >> tmp;
+			d_v = d_v + ' ' + clear
+			tmp;
 		}
+		std::cout << d_v << std::endl;
 		infile.close();
 	}
 	else
 	{
-		std::cerr << "Error: could not open file." << std::endl;
+		error_msg("could not open file");
 	}
 }

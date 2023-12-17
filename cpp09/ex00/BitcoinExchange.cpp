@@ -12,10 +12,17 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& old_obj)
 
 BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& old_obj)
 {
+	(void)old_obj;
 	return *this;
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
 
+}
+
+void	error_msg(std::string err)
+{
+	std::cerr << "Error: " << err << std::endl;
+	exit (1);
 }

@@ -17,4 +17,6 @@ class   BitcoinExchange
 		~BitcoinExchange();
 };
 
+void	error_msg(std::string err);
+
 #endif
