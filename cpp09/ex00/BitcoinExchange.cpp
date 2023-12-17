@@ -26,3 +26,8 @@ void	error_msg(std::string err)
 	std::cerr << "Error: " << err << std::endl;
 	exit (1);
 }
+
+// void	BitcoinExchange::addToContainer(float key, std::string data)
+// {
+// 	// csv.insert(std::pair(key, data));
+// }
