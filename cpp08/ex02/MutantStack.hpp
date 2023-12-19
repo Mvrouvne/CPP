@@ -17,6 +17,7 @@ class   MutantStack : public std::stack<T>
 		}
 		MutantStack&	operator=(const MutantStack& old_obj)
 		{
+			(void)old_obj;
 			return *this;
 		}
 		~MutantStack()

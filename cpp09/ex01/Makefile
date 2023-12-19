@@ -1,9 +1,9 @@
-NAME = btc
+NAME = RPN
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 
 SRCS = main.cpp\
-		BitcoinExchange.cpp\
+		RPN.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
