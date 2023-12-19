@@ -21,7 +21,7 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& old_obj)
 
 BitcoinExchange::~BitcoinExchange()
 {
-
+	csv_infile.close();
 }
 
 void	error_msg(std::string err)
