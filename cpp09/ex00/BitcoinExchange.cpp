@@ -12,13 +12,16 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& old_obj)
 
 BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& old_obj)
 {
-	(void)old_obj;
+	if (this != &old_obj)
+	{
+		this->csv_map = old_obj.csv_map;
+	}
 	return *this;
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
-	//delet!!!
+
 }
 
 void	error_msg(std::string err)
