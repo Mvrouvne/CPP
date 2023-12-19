@@ -6,19 +6,22 @@
 #include <fstream>
 #include <string>
 #include <exception>
+#include <ctime>
 
 // template<typename T>
 class   BitcoinExchange
 {
 	private:
-		std::multimap<std::string, float> csv;
+		std::map<std::string, float> csv_map;
+		std::ifstream	csv_infile;
+
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange& old_obj);
 		BitcoinExchange&	operator=(const BitcoinExchange& old_obj);
 		~BitcoinExchange();
-		// void	addToContainer(float key, std::string data);
-		void	displayContainer();
+		void	open_csv();
+		void	FindnMultiply(std::string date, float value);
 };
 
 void	error_msg(std::string err);
