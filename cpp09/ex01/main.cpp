@@ -55,6 +55,8 @@ size_t	Calculate(std::string tokens)
 				MyStack.push(atoi(num.c_str()));
 		}
 	}
+	if (MyStack.size() > 1)
+		print_err("invalid operation");
 	return (MyStack.top());
 }
 
