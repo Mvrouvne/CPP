@@ -5,8 +5,9 @@ int	Calculate(std::string tokens)
 	std::stack<int>	MyStack;
 
 	std::string num;
-	int			val1;
-	int			val2;
+	int			val1 = 0;
+	int			val2 = 0;
+	int			check = 0;
 	for (int x = 0; tokens[x]; x++)
 	{
 		switch(tokens[x])
@@ -19,6 +20,7 @@ int	Calculate(std::string tokens)
 				val2 = MyStack.top();
 				MyStack.pop();
 				MyStack.push(val1 + val2);
+				check++;
 				break ;
 			case '-':
 				if (MyStack.size() < 2)
@@ -28,6 +30,7 @@ int	Calculate(std::string tokens)
 				val2 = MyStack.top();
 				MyStack.pop();
 				MyStack.push(val2 - val1);
+				check++;
 				break ;
 			case '/':
 				if (MyStack.size() < 2)
@@ -39,6 +42,7 @@ int	Calculate(std::string tokens)
 				if (!val1)
 					print_err("invalid operation");
 				MyStack.push(val2 / val1);
+				check++;
 				break ;
 			case '*':
 				if (MyStack.size() < 2)
@@ -48,18 +52,23 @@ int	Calculate(std::string tokens)
 				val2 = MyStack.top();
 				MyStack.pop();
 				MyStack.push(val1 * val2);
+				check++;
 				break ;
 			case ' ':
 				break;
 			default:
-				if (tokens[x + 1] == ' ')
-					num = tokens[x];
+				num = tokens[x];
 				MyStack.push(atoi(num.c_str()));
 		}
 	}
-	if (MyStack.size() > 1)
+	if (MyStack.size() > 1 || !check)
 		print_err("invalid operation");
-	return (MyStack.top());
+	else if (!MyStack.empty())
+		return (MyStack.top());
+	else
+		print_err("invalid operation");
+	return 0;
+	
 }
 
 int	main(int ac, char** av)
