@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-size_t	Calculate(std::string tokens)
+int	Calculate(std::string tokens)
 {
 	std::stack<int>	MyStack;
 
