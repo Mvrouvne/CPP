@@ -12,6 +12,8 @@ size_t	Calculate(std::string tokens)
 		switch(tokens[x])
 		{
 			case '+':
+				if (MyStack.size() < 2)
+					print_err("invalid operation");
 				val1 = MyStack.top();
 				MyStack.pop();
 				val2 = MyStack.top();
@@ -19,6 +21,8 @@ size_t	Calculate(std::string tokens)
 				MyStack.push(val1 + val2);
 				break ;
 			case '-':
+				if (MyStack.size() < 2)
+					print_err("invalid operation");
 				val1 = MyStack.top();
 				MyStack.pop();
 				val2 = MyStack.top();
@@ -26,6 +30,8 @@ size_t	Calculate(std::string tokens)
 				MyStack.push(val2 - val1);
 				break ;
 			case '/':
+				if (MyStack.size() < 2)
+					print_err("invalid operation");
 				val1 = MyStack.top();
 				MyStack.pop();
 				val2 = MyStack.top();
@@ -33,11 +39,12 @@ size_t	Calculate(std::string tokens)
 				MyStack.push(val2 / val1);
 				break ;
 			case '*':
+				if (MyStack.size() < 2)
+					print_err("invalid operation");
 				val1 = MyStack.top();
 				MyStack.pop();
 				val2 = MyStack.top();
 				MyStack.pop();
-				// std::cout << "val1 " << val1 << "val2 " << val2 << std::endl;
 				MyStack.push(val1 * val2);
 				break ;
 			case ' ':
@@ -45,18 +52,6 @@ size_t	Calculate(std::string tokens)
 			default:
 				if (tokens[x + 1] == ' ')
 					num = tokens[x];
-				else
-				{
-					std::cout << "token: " << tokens[x] << std::endl;
-					std::cout << "token1: " << tokens[x+1] << std::endl;
-					num = tokens[x] + tokens[x + 1];
-					// num = 'a' + 'b';
-					std::cout << "num: " << num << std::endl;
-					// if (atoi(num.c_str()) > 10)
-					// 	print_err("Number is greater than 10!");
-					x++;
-				}
-				// std::cout << "push: " << atoi(num.c_str()) << std::endl;
 				MyStack.push(atoi(num.c_str()));
 		}
 	}
@@ -71,10 +66,11 @@ int	main(int ac, char** av)
 			print_err("Empty argument");
 		for (int x = 0; av[1][x]; x++)
 		{
-			if (!isdigit(av[1][x]) && av[1][x] != '+' &&av[1][x] != '-'
+			if (!isdigit(av[1][x]) && av[1][x] != '+' && av[1][x] != '-'
 				&& av[1][x] != '/' && av[1][x] != '*' && av[1][x] != ' ')
 				print_err("Wrong argument");
-			//check if its smaller than 10
+			else if (isdigit(av[1][x]) && isdigit(av[1][x + 1]))
+				print_err("Number is greater than 9!");
 		}
 		std::cout << Calculate(av[1]) << std::endl;
 	}
