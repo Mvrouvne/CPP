@@ -36,6 +36,8 @@ size_t	Calculate(std::string tokens)
 				MyStack.pop();
 				val2 = MyStack.top();
 				MyStack.pop();
+				if (!val1)
+					print_err("invalid operation");
 				MyStack.push(val2 / val1);
 				break ;
 			case '*':
