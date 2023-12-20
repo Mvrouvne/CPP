@@ -2,6 +2,6 @@
 
 void	print_err(std::string err)
 {
-	std::cerr << "Error: " << err << std::endl;
+	std::cout << "Error: " << err << std::endl;
 	exit (1);
 }

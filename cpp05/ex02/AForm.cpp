@@ -1,9 +1,9 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("AForm"), sign(false), grade(50), ExecuteGrade(0)
+AForm::AForm() : name("101AForm"), sign(false), grade(50), ExecuteGrade(0)
 {
-	// std::cout << "AForm default constructor called" << std::endl;
+	std::cout << "AForm default constructor called" << std::endl;
 }
 
 AForm::AForm(const std::string name, const int grade, const int ExecuteGrade) : name(name), grade(grade), ExecuteGrade(ExecuteGrade)
@@ -21,24 +21,25 @@ AForm::AForm(const std::string name, const int grade, const int ExecuteGrade) : 
 	}
 }
 
-AForm::AForm(const AForm& old_obj) : grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
+AForm::AForm(const AForm& old_obj) : name(old_obj.name), sign(old_obj.sign), grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
 {
-	// std::cout << "AForm Copy constructor called" << std::endl;
-	*this = old_obj;
+	std::cout << "AForm Copy constructor called" << std::endl;
 }
 
 AForm&	AForm::operator=(const AForm& old_obj)
 {
-	if (this != &old_obj)
-	{
-		this->sign = old_obj.sign;
-	}
+	(void)old_obj;
+	// if (this != &old_obj)
+	// {
+		// AForm tmp(old_obj);
+		// std::swap(tmp, *this);
+	// }
 	return *this;
 }
 
 AForm::~AForm()
 {
-	// std::cout << "AForm Destructor called" << std::endl;
+	std::cout << "AForm Destructor called" << std::endl;
 }
 
 std::string	AForm::getName() const

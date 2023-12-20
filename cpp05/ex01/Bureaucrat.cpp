@@ -7,23 +7,22 @@ Bureaucrat::Bureaucrat() : name("Bureaucrat")
 	this->grade = 1;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
 	std::cout << "Bureaucrat Parametrized constructor called" << std::endl;
-	setGrade(grade);
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& old_obj) : name(old_obj.name)
+Bureaucrat::Bureaucrat(const Bureaucrat& old_obj) : name(old_obj.name), grade(old_obj.grade)
 {
 	std::cout << "Buraucrat Copy constructor called" << std::endl;
-	*this = old_obj;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& old_obj)
 {
 	if (this != &old_obj)
 	{
-		this->grade = old_obj.grade;
+		Bureaucrat tmp(old_obj);
+		std::swap(tmp, *this);
 	}
 	return *this;
 }

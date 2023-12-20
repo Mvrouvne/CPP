@@ -21,17 +21,17 @@ Form::Form(const std::string name, const int grade, const int ExecuteGrade) : na
 	}
 }
 
-Form::Form(const Form& old_obj) : grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
+Form::Form(const Form& old_obj) : name(name), sign(sign), grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
 {
 	std::cout << "Form Copy constructor called" << std::endl;
-	*this = old_obj;
 }
 
 Form&	Form::operator=(const Form& old_obj)
 {
 	if (this != &old_obj)
 	{
-		this->sign = old_obj.sign;
+		Form tmp(old_obj);
+		std::swap(tmp, *this);
 	}
 	return *this;
 }

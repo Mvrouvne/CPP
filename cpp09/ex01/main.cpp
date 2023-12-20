@@ -47,7 +47,13 @@ size_t	Calculate(std::string tokens)
 					num = tokens[x];
 				else
 				{
+					std::cout << "token: " << tokens[x] << std::endl;
+					std::cout << "token1: " << tokens[x+1] << std::endl;
 					num = tokens[x] + tokens[x + 1];
+					num = 'a' + 'b';
+					std::cout << "num: " << num << std::endl;
+					// if (atoi(num.c_str()) > 10)
+					// 	print_err("Number is greater than 10!");
 					x++;
 				}
 				// std::cout << "push: " << atoi(num.c_str()) << std::endl;

@@ -3,34 +3,33 @@
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat")
 {
-	// std::cout << "Bureaucrat Default constructor called" << std::endl;
+	std::cout << "Bureaucrat Default constructor called" << std::endl;
 	this->grade = 1;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
-	// std::cout << "Bureaucrat Parametrized constructor called" << std::endl;
-	setGrade(grade);
+	std::cout << "Bureaucrat Parametrized constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& old_obj) : name(old_obj.name)
+Bureaucrat::Bureaucrat(const Bureaucrat& old_obj) : name(old_obj.name), grade(old_obj.grade)
 {
-	// std::cout << "Buraucrat Copy constructor called" << std::endl;
-	*this = old_obj;
+	std::cout << "Buraucrat Copy constructor called" << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& old_obj)
 {
 	if (this != &old_obj)
 	{
-		this->grade = old_obj.grade;
+		Bureaucrat tmp(old_obj);
+		std::swap(tmp, *this);
 	}
 	return *this;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	// std::cout << "Bureaucrat Destructor called" << std::endl;
+	std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getName() const
@@ -56,7 +55,6 @@ void	Bureaucrat::setGrade(int grade)
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
-		exit (0);
 	}
 }
 

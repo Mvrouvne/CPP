@@ -16,7 +16,7 @@ class   ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(std::string target);
         ShrubberyCreationForm(const ShrubberyCreationForm& old_obj);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& old_obj);
-        ~ShrubberyCreationForm();
+        virtual ~ShrubberyCreationForm();
         void    setTarget(std::string target);
         void    TreeCreation(std::string target) const;
         virtual void	execute(Bureaucrat const & executor) const;
