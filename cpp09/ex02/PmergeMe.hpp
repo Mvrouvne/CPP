@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <deque>
+#include <ctime>
 
 void	print_err(std::string err);
 

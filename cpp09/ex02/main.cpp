@@ -1,9 +1,9 @@
 #include "PmergeMe.hpp"
 
 template <typename T>
-void	merge_insert_algo(T& container)
+void	merge_insert_algo(T& container, T& BigVec)
 {
-	T BigVec;
+	// T BigVec;
 	T SmallVec;
 	// checking for the big numbers in pairs
 	for (typename T::iterator it = container.begin(); it != container.end(); it+=2)
@@ -19,18 +19,15 @@ void	merge_insert_algo(T& container)
 	std::sort(BigVec.begin(), BigVec.end());
 	for (typename T::iterator SmallVec_it = SmallVec.begin(); SmallVec_it != SmallVec.end(); SmallVec_it++)
 		BigVec.insert(std::lower_bound(BigVec.begin(), BigVec.end(), *SmallVec_it), *SmallVec_it);
-	for (typename T::iterator BigVec_it = BigVec.begin(); BigVec_it != BigVec.end(); BigVec_it++)
-	{
-		std::cout << *BigVec_it << " ";
-	}
 }
 
-void	insertion_sort_vector(std::string to_sort)
+void	parse_push(std::string to_sort)
 {
 	std::vector<int> MyVec;
+	std::vector<int> BigVec;
 	std::deque<int>	MyDeque;
+	std::deque<int>	BigDeque;
 	std::string to_push;
-	// int	pairs = 0;
 	std::cout << "Before: " << to_sort << std::endl;
 	for (int x = 0; to_sort[x]; x++)
 	{
@@ -43,11 +40,20 @@ void	insertion_sort_vector(std::string to_sort)
 			to_push.erase(0, to_push.length());
 		}
 	}
-	std::cout << "Vector: ";
-	merge_insert_algo(MyVec);
+	clock_t start = clock();
+	merge_insert_algo(MyVec, BigVec);
+	clock_t end = clock();
+	std::cout << "After: ";
+	for (std::vector<int>::iterator BigVec_it = BigVec.begin(); BigVec_it != BigVec.end(); BigVec_it++)
+	{
+		std::cout << *BigVec_it << " ";
+	}
 	std::cout << std::endl;
-	std::cout << "Deque: ";
-	merge_insert_algo(MyDeque);
+	std::cout << "Time to process a range of " << MyVec.size() << " elements with std::vector: " << (double)(end - start) / 1000 << " ms" << std::endl;
+	clock_t start1 = clock();
+	merge_insert_algo(MyDeque, BigDeque);
+	clock_t end1 = clock();
+	std::cout << "Time to process a range of " << MyVec.size() << " elements with std::deque: " << (double)(end1 - start1) / 1000 << " ms" << std::endl;
 }
 
 int	main(int ac, char** av)
@@ -66,6 +72,6 @@ int	main(int ac, char** av)
 			}
 			to_sort = to_sort + ' ';
 		}
-		insertion_sort_vector(to_sort);
+		parse_push(to_sort);
 	}
 }
