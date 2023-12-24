@@ -5,7 +5,7 @@ void	merge_insert_algo(T& container, T& BigVec)
 {
 	// T BigVec;
 	T SmallVec;
-	// checking for the big numbers in pairs
+	// splitting big and small nums as pairs
 	for (typename T::iterator it = container.begin(); it != container.end(); it+=2)
 	{
 		if (it + 1 == container.end())
@@ -16,7 +16,20 @@ void	merge_insert_algo(T& container, T& BigVec)
 		BigVec.push_back(*(std::max_element(it, it + 2)));
 		SmallVec.push_back(*(std::min_element(it, it + 2)));
 	}
-	std::sort(BigVec.begin(), BigVec.end());
+	// insertion sort big nums
+	typename T::iterator BigVec_it = BigVec.begin() + 1;
+	typename T::iterator BigVec_it2;
+	while (BigVec_it != BigVec.end())
+	{
+		BigVec_it2 = BigVec_it;
+		while ((BigVec_it2 != BigVec.begin()) && (*BigVec_it2 < *(BigVec_it2 - 1)))
+		{
+			std::swap(*BigVec_it2, *(BigVec_it2 - 1));
+			BigVec_it2--;
+		}
+		BigVec_it++;
+	}
+	// merging the small into big nums
 	for (typename T::iterator SmallVec_it = SmallVec.begin(); SmallVec_it != SmallVec.end(); SmallVec_it++)
 		BigVec.insert(std::lower_bound(BigVec.begin(), BigVec.end(), *SmallVec_it), *SmallVec_it);
 }
