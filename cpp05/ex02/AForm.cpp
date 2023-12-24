@@ -66,9 +66,9 @@ void	AForm::beSigned(Bureaucrat& obj)
 {
 	try
 	{
-		if (obj.getGrade() < 1)
+		if (this->grade < 1)
 			throw GradeTooHighException();
-		else if (obj.getGrade() > 150)
+		else if (this->grade > 150)
 			throw GradeTooLowException();
 		else if (obj.getGrade() <= this->grade)
 			this->sign = true;
@@ -76,7 +76,6 @@ void	AForm::beSigned(Bureaucrat& obj)
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
-		exit (0);
 	}
 }
 

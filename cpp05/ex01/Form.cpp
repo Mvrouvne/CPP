@@ -21,7 +21,7 @@ Form::Form(const std::string name, const int grade, const int ExecuteGrade) : na
 	}
 }
 
-Form::Form(const Form& old_obj) : name(name), sign(sign), grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
+Form::Form(const Form& old_obj) : name(old_obj.name), sign(old_obj.sign), grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
 {
 	std::cout << "Form Copy constructor called" << std::endl;
 }
@@ -65,9 +65,9 @@ void	Form::beSigned(Bureaucrat& obj)
 {
 	try
 	{
-		if (obj.getGrade() < 1)
+		if (this->grade < 1)
 			throw GradeTooHighException();
-		else if (obj.getGrade() > 150)
+		else if (this->grade > 150)
 			throw GradeTooLowException();
 		else if (obj.getGrade() <= this->grade)
 			this->sign = true;
@@ -75,7 +75,6 @@ void	Form::beSigned(Bureaucrat& obj)
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
-		exit (0);
 	}
 }
 

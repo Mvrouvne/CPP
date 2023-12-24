@@ -19,7 +19,7 @@ int main()
     // PresidentialPardonForm obj("Marouane");
 
     // obj.inform();
-    Bureaucrat obj("Marouane", 5);
+    Bureaucrat obj("Marouane", 4);
     ShrubberyCreationForm s_obj("Shrubbery");
     RobotomyRequestForm r_obj("Robotomy");
     PresidentialPardonForm p_obj("President");

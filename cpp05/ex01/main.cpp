@@ -6,7 +6,7 @@ int	main()
 
 	// std::cout << obj << std::endl;
 	Form obj("C34", 60, 60);
-	Bureaucrat obj2("Marouane", 1);
+	Bureaucrat obj2("Marouane", 10);
 
 	std::cout << "Form Name: " << obj.getName() << std::endl;
 	std::cout << "Form Grade: " << obj.get_Grade() << std::endl;
