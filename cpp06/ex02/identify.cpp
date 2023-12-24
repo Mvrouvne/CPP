@@ -81,7 +81,6 @@ void    identify(Base& p)
 	}
 	catch (std::bad_cast& b)
 	{
-		// std::cout << "Unknown type" << std::endl;
 		try
 		{
 			p = dynamic_cast<ClassB&>(p);
@@ -89,7 +88,6 @@ void    identify(Base& p)
 		}
 		catch (std::bad_cast& b)
 		{
-			// std::cout << "Unknown type" << std::endl;
 			try
 			{
 				p = dynamic_cast<ClassC&>(p);
@@ -99,10 +97,6 @@ void    identify(Base& p)
 			{
 				std::cout << "Unknown type" << std::endl;
 			}
-			// std::cout << "Unknown type" << std::endl;
 		}
 	}
-	// worked with exceptions because of reference cant take null so dynamic_cast
-	//  throws exception instead of nullptr in *
-	// upcasting is when we move up in the hierarchy
 }

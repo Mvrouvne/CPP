@@ -1,11 +1,4 @@
 #include "identify.hpp"
-#include <unistd.h>
-void	fun()
-{
-	srand(time(NULL));
-	std::cout << rand() << std::endl;
-
-}
 
 int main()
 {
@@ -18,9 +11,9 @@ int main()
 	// generate();
 	// generate();
 	identify(*generate());
-	// identify(*generate());
-	// identify(*generate());
-	// identify(*generate());
+	identify(*generate());
+	identify(*generate());
+	identify(*generate());
 	// identify(*generate());
 	// identify(*generate());
 	// identify(*generate());
