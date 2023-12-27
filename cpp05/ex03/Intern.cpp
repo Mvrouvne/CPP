@@ -56,6 +56,6 @@ AForm*	Intern::makeForm(std::string formName, std::string formTarget)
 	}
 	for (int y = 0; y < 3; y++)
 		delete requests[y];
-	std::cout << "Form name doesn't exist!" << std::endl;
+	throw Bureaucrat::FormNameDoesntExist();
 	return NULL;
 }

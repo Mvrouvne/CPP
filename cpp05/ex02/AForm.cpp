@@ -8,17 +8,10 @@ AForm::AForm() : name("101AForm"), sign(false), grade(50), ExecuteGrade(0)
 
 AForm::AForm(const std::string name, const int grade, const int ExecuteGrade) : name(name), grade(grade), ExecuteGrade(ExecuteGrade)
 {
-	try
-	{
-		if (grade < 1)
-			throw GradeTooHighException();
-		else if (grade > 150)
-			throw GradeTooLowException();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
 }
 
 AForm::AForm(const AForm& old_obj) : name(old_obj.name), sign(old_obj.sign), grade(old_obj.grade), ExecuteGrade(old_obj.ExecuteGrade)
@@ -64,19 +57,12 @@ int	AForm::get_ExecuteGrade() const
 
 void	AForm::beSigned(Bureaucrat& obj)
 {
-	try
-	{
-		if (this->grade < 1)
-			throw GradeTooHighException();
-		else if (this->grade > 150)
-			throw GradeTooLowException();
-		else if (obj.getGrade() <= this->grade)
-			this->sign = true;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	if (this->grade < 1)
+		throw GradeTooHighException();
+	else if (this->grade > 150)
+		throw GradeTooLowException();
+	else if (obj.getGrade() <= this->grade)
+		this->sign = true;
 }
 
 const char* AForm::GradeTooHighException::what() const throw()

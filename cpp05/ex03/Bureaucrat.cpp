@@ -44,24 +44,11 @@ int Bureaucrat::getGrade() const
 
 void	Bureaucrat::setGrade(int grade)
 {
-	try
-	{
-		if (grade < 1)
-		{
-			this->grade = 50;
-			throw GradeTooHighException();
-		}
-		else if (grade > 150)
-		{
-			this->grade = 50;
-			throw GradeTooLowException();
-		}
-		this->grade = grade;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (grade < 1)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+	this->grade = grade;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
@@ -117,15 +104,13 @@ void	Bureaucrat::executeForm(AForm const & form)
 
 void	Bureaucrat::signForm(AForm& obj)
 {
-	try
-	{
-		if (obj.get_Sign())
-			std::cout << this->name << " signed " << obj.getName() << std::endl;
-		else if (!obj.get_Sign())
-			throw FormNotSignedException();
-	}
-	catch(std::exception& e)
-	{
-		std::cerr << this->name << " couldn't sign " << obj.getName() << " because " << e.what() << std::endl;
-	}
+	if (obj.get_Sign())
+		std::cout << this->name << " signed " << obj.getName() << std::endl;
+	else if (!obj.get_Sign())
+		throw FormNotSignedException();
+}
+
+const char* Bureaucrat::FormNameDoesntExist::what() const throw()
+{
+	return "Form name doesn't exist!";
 }

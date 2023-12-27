@@ -41,6 +41,11 @@ class	Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
+		class	FormNameDoesntExist : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 std::ostream&	operator<<(std::ostream& output, const Bureaucrat& old_obj);

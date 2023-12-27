@@ -4,9 +4,17 @@
 
 int main()
 {
-    Intern  someRandomIntern;
-    AForm*   rrf;
+    try
+    {
+        Intern  someRandomIntern;
+        AForm*   rrf;
 
-    rrf = someRandomIntern.makeForm("shrubbery request", "Bender");
-    delete rrf;
+        rrf = someRandomIntern.makeForm("shrubbery request", "Bender");
+        std::cout << rrf->getName() << std::endl;
+        delete rrf;
+    }
+    catch(std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }

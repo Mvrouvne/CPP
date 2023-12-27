@@ -82,3 +82,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	else
 		this->TreeCreation(this->target);
 }
+
+std::string ShrubberyCreationForm::getName() const
+{
+	return this->target;
+}

@@ -72,3 +72,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	else
 		inform();
 }
+
+std::string RobotomyRequestForm::getName() const
+{
+	return this->target;
+}

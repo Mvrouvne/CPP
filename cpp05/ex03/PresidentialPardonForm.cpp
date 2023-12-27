@@ -39,7 +39,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 
 void    PresidentialPardonForm::inform() const
 {
-    // std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -55,4 +55,9 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		throw FormNotSignedException();
 	else
 		inform();
+}
+
+std::string PresidentialPardonForm::getName() const
+{
+	return this->target;
 }

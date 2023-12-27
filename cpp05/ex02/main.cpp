@@ -7,27 +7,34 @@
 
 int main()
 {
-    // ShrubberyCreationForm obj;
+    try
+    {
+        // ShrubberyCreationForm obj;
 
-    // obj.TreeCreation("House");
-    // RobotomyRequestForm obj("Marouane");
+        // obj.TreeCreation("House");
+        // RobotomyRequestForm obj("Marouane");
 
-    // obj.inform();
-    // obj.inform();
-    // obj.inform();
-    // obj.inform();
-    // PresidentialPardonForm obj("Marouane");
+        // obj.inform();
+        // obj.inform();
+        // obj.inform();
+        // obj.inform();
+        // PresidentialPardonForm obj("Marouane");
 
-    // obj.inform();
-    Bureaucrat obj("Marouane", 4);
-    ShrubberyCreationForm s_obj("Shrubbery");
-    RobotomyRequestForm r_obj("Robotomy");
-    PresidentialPardonForm p_obj("President");
+        // obj.inform();
+        Bureaucrat obj("Marouane", 4);
+        ShrubberyCreationForm s_obj("Shrubbery");
+        RobotomyRequestForm r_obj("Robotomy");
+        PresidentialPardonForm p_obj("President");
 
-    // r_obj.beSigned(obj);
-    // obj.executeForm(r_obj);
-    // s_obj.beSigned(obj);
-    // obj.executeForm(s_obj);
-    p_obj.beSigned(obj);
-    obj.executeForm(p_obj);
+        // r_obj.beSigned(obj);
+        // obj.executeForm(r_obj);
+        // s_obj.beSigned(obj);
+        // obj.executeForm(s_obj);
+        p_obj.beSigned(obj);
+        obj.executeForm(p_obj);
+    }
+    catch(std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
