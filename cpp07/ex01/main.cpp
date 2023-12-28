@@ -3,7 +3,7 @@
 template<typename T>
 void print(T& a)
 {
-		std::cout << a << std::endl;
+	std::cout << a << std::endl;
 }
 
 int	main()

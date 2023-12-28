@@ -10,11 +10,4 @@ void	iter(T1 arr_add, int len, T2 arr_fun)
 		arr_fun(arr_add[x]);
 }
 
-template<typename t>
-void    *arr_function(t x)
-{
-	std::cout << x << std::endl;
-	return NULL;
-}
-
 #endif
