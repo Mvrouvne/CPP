@@ -24,7 +24,7 @@ class   MutantStack : public std::stack<T>
 		{
 			
 		}
-		typedef typename std::deque<T>::iterator iterator; // std::deque<T>::iterator is an independent name that's why we did typename
+		typedef typename std::deque<T>::iterator iterator;
 		iterator begin()
 		{
 			return this->c.begin();
