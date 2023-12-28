@@ -11,9 +11,6 @@ int main()
 	// generate();
 	// generate();
 	identify(*generate());
-	identify(*generate());
-	identify(*generate());
-	identify(*generate());
 	// identify(*generate());
 	// identify(*generate());
 	// identify(*generate());
