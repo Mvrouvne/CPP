@@ -1,6 +1,66 @@
 #include "PmergeMe.hpp"
 
 template <typename T>
+void	merge(T leftVec, T rightVec, T& BigVec)
+{
+	int	left_size = BigVec.size() / 2;
+	int	right_size = BigVec.size() - left_size;
+	int x = 0, l = 0, r = 0;
+	while (l < left_size && r < right_size)
+	{
+		if (leftVec[l] < rightVec[r])
+		{
+			BigVec[x] = leftVec[l];
+			x++;
+			l++;
+		}
+		else
+		{
+			BigVec[x] = rightVec[r];
+			x++;
+			r++;
+		}
+	}
+	while (l < left_size)
+	{
+		BigVec[x] = leftVec[l];
+		x++;
+		l++;
+	}
+	while (r < right_size)
+	{
+		BigVec[x] = rightVec[r];
+		x++;
+		r++;
+	}
+}
+
+template <typename T>
+void	mergeSort(T& BigVec)
+{
+	int	length = BigVec.size();
+	if (length <= 1)
+		return ;
+	int	middle = length / 2;
+	T leftVec(middle);
+	T rightVec(length - middle);
+	int	x = 0, y = 0;
+	for (; x < length; x++)
+	{
+		if (x < middle)
+			leftVec[x] = BigVec[x];
+		else
+		{
+			rightVec[y] = BigVec[x];
+			y++;
+		}
+	}
+	mergeSort(leftVec);
+	mergeSort(rightVec);
+	merge(leftVec, rightVec, BigVec);
+}
+
+template <typename T>
 void	merge_insert_algo(T& container, T& BigVec)
 {
 	// T BigVec;
@@ -16,20 +76,9 @@ void	merge_insert_algo(T& container, T& BigVec)
 		BigVec.push_back(*(std::max_element(it, it + 2)));
 		SmallVec.push_back(*(std::min_element(it, it + 2)));
 	}
-	// insertion sort big nums
-	typename T::iterator BigVec_it = BigVec.begin() + 1;
-	typename T::iterator BigVec_it2;
-	while (BigVec_it != BigVec.end())
-	{
-		BigVec_it2 = BigVec_it;
-		while ((BigVec_it2 != BigVec.begin()) && (*BigVec_it2 < *(BigVec_it2 - 1)))
-		{
-			std::swap(*BigVec_it2, *(BigVec_it2 - 1));
-			BigVec_it2--;
-		}
-		BigVec_it++;
-	}
-	// merging the small into big nums
+	// merge sort
+	mergeSort(BigVec);
+	// insertion sort
 	for (typename T::iterator SmallVec_it = SmallVec.begin(); SmallVec_it != SmallVec.end(); SmallVec_it++)
 		BigVec.insert(std::lower_bound(BigVec.begin(), BigVec.end(), *SmallVec_it), *SmallVec_it);
 }
