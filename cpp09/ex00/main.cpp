@@ -114,7 +114,7 @@ int	main(int ac, char** av)
 			error_msg("could not open file");
 		std::getline(infile, tmp);
 		if (strcmp(tmp.c_str(), "date | value"))
-			error_msg("no date | value found!");
+			std::cerr << "no date | value found!" << std::endl;
 		while (std::getline(infile, tmp))
 			d_v = d_v + tmp + '\n';
 		fill_map(d_v, obj);

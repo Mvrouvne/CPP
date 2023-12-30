@@ -56,5 +56,5 @@ void	BitcoinExchange::FindnMultiply(std::string date, float value)
 		if (it != csv_map.begin())
 			it--;
 	}
-	std::cout << date << " => " << value << " = " << std::fixed << (value * it->second) << std::endl;
+	std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
 }
