@@ -17,7 +17,7 @@ class	Array
 		Array&	operator=(Array& old_obj);
 		int&	operator[](unsigned int index)
 		{
-			if (index < 0 || index >= n)
+			if (index >= n)
 				throw indexOutofBoudsException();
 			return array[index];
 		}
